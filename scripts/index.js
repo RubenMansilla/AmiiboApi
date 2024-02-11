@@ -18,7 +18,8 @@ request.onload = function () {
 
 // Muestra los siguientes amiibos y elimina el botón de carga si es necesario
 function mostrarPersonajes(Indice) {
-    const limite = Math.min(Indice + amiibosAMostrar, res.amiibo.length);
+    // Calcula el límite de amiibos a mostrar (no supera el total de amiibos) 
+    const limite = Math.min(Indice + amiibosAMostrar, res.amiibo.length); 
 
     // Agrega cada amiibo al contenedor
     for (let i = Indice; i < limite; i++) {
