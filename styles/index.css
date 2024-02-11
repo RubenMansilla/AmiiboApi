@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    height: fit-content;
+    text-align: center;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.logoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.imagenLogo {
+    width: 35%;
+    transition: ease 0.8s;
+    cursor: pointer;
+}
+
+.contenedorBuscador {
+    display: flex;
+    align-items: center;
+    border: 1px solid #000000;
+}
+
+.buscador {
+    margin: 20px;
+    border: 1px solid #000000;
+    width: fit-content;
+    width: 40%;
+}
+
+.buscadorInput {
+    background: #f0d698;
+    border-radius: 30px;
+    transition: 0.5s ease-out;
+    color: #9e720a;
+    font-size: 1.5rem;
+    font-weight: 100;
+    padding: 20px 20px 20px 60px;
+    width: 60%;
+}
+
+.buscadorInput::placeholder {
+    color: #9e720a;
+    font-size: 1.5rem;
+    font-weight: 100;
+}
+
+.bn633-hover {
+    width: 160px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin: 20px;
+    height: 55px;
+    text-align: center;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 50px;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.bn633-hover:hover {
+    background-position: 100% 0;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.bn633-hover:focus {
+    outline: none;
+}
+
+.bn633-hover.bn26 {
+    background-image: linear-gradient(to right,
+            #25aae1,
+            #4481eb,
+            #04befe,
+            #3f86ed);
+    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+}
+
+@media screen and (min-width: 768px) {
+
+    /* Estilos para pantallas más grandes, ajusta el valor según sea necesario */
+    .contenedorBuscador {
+        flex-direction: row;
+        /* Cambiado a fila para pantallas más grandes */
+        justify-content: center;
+        /* Centra los buscadores horizontalmente */
+    }
+
+    .buscador {
+        margin: 20px;
+    }
+}
+
+/* Estilos para iPad */
+@media screen and (max-width: 1024px) {
+    .imagenLogo {
+        width: 80%;
+    }
+}
+
+/* Estilos para dispositivos móviles */
+@media screen and (max-width: 480px) {
+    .imagenLogo {
+        width: 100%;
+    }
+}
+
+.imagenLogo:hover {
+    transform: scale(1.2);
+}
+
+.contenedorAmiibo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: 1px solid #000000;
+    gap: 60px;
+    padding-block: 50px;
+}
+
+.amiibo {
+    width: 300px;
+    height: 480px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    transition: ease 0.5s;
+}
+
+.amiibo:hover {
+    transition: ease 0.5s;
+    transform: scale(1.08);
+    
+}
+
+.cajaAmiiboImg {
+    border: 1px solid #000000;
+    height: 60%;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    margin-block: 15px;
+}
+
+.imgAmiibo {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.amiiboInfo {
+    border: 1px solid #000000;
+    height: 30%;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.amiiboNombre {
+    font-family: 'Philosopher', sans-serif;
+    font-family: 'Roboto Slab', serif;
+    font-size: 2.4rem;
+}
+
+.amiiboSerie {
+    font-family: 'Assistant', sans-serif;
+    font-size: 1..5rem;
+}
+
+.bn632-hover {
+    width: 160px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    height: 40px;
+    text-align: center;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 50px;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.bn632-hover:hover {
+    background-position: 100% 0;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.bn632-hover:focus {
+    outline: none;
+}
+
+.bn632-hover.bn22 {
+    background-image: linear-gradient(to right,
+            #0ba360,
+            #3cba92,
+            #30dd8a,
+            #2bb673);
+    box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+}

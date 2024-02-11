@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type='text/css' rel='stylesheet' href='styles/scrollbar.css'>
+    <link type="text/css" rel="stylesheet" href="styles/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Philosopher&family=Roboto+Slab:wght@500&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant&display=swap" rel="stylesheet">
+    <script src="scripts/index.js" defer></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="logoContainer">
+            <img class="imagenLogo" src="img/Amiibo_logo.png">
+        </div>
+    </header>
+
+    <div class="contenedorBuscador">
+        <div class="buscador">
+            <input type="text" id="inputNombre" class="buscadorInput" placeholder="Buscar tu amiibo">
+            <a><button id="btnBuscarNombre" class="bn633-hover bn26">Buscar</button></a>
+        </div>
+        <div class="buscador">
+            <select class="buscadorInput">
+                <option value="0">Tipo de amiibo</option>
+                <option value="1">Animal Crossing</option>
+                <option value="2">Super Smash Bros</option>
+                <option value="3">The Legend of Zelda</option>
+                <option value="4">Splatoon</option>
+                <option value="5">Kirby</option>
+                <option value="6">Fire Emblem</option>
+                <option value="7">Yoshi's Woolly World</option>
+                <option value="8">Chibi-Robo</option>
+            </select>
+            <a><button id="btnBuscarSelect" class="bn633-hover bn26">Buscar</button></a>
+        </div>
+    </div>
+
+    <div class="contenedorAmiibo" id="contenedorAmiibo"></div>
+
+</body>
+
+</html>

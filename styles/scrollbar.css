@@ -1,0 +1,20 @@
+/* Estilo para el scrollbar */
+body::-webkit-scrollbar {
+    width: 12px; /* Ancho de la barra de desplazamiento */
+}
+
+/* Estilo para el track (la "línea" en la que se desplaza la barra) */
+body::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Color de fondo del track */
+}
+
+/* Estilo para el thumb (la "barra" en sí) */
+body::-webkit-scrollbar-thumb {
+    background-color: #888; /* Color del thumb */
+    border-radius: 6px; /* Bordes redondeados del thumb */
+}
+
+/* Cambia el color del thumb al pasar el ratón sobre él */
+body::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
