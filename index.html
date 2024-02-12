@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Assistant&display=swap" rel="stylesheet">
     <script src="scripts/index.js" defer></script>
-    <title>Document</title>
+    <title>Amiibo Api</title>
 </head>
 
 <body>
@@ -31,18 +31,42 @@
             <a><button id="btnBuscarNombre" class="bn633-hover bn26">Buscar</button></a>
         </div>
         <div class="buscador">
-            <select class="buscadorInput">
-                <option value="0">Tipo de amiibo</option>
-                <option value="1">Animal Crossing</option>
-                <option value="2">Super Smash Bros</option>
-                <option value="3">The Legend of Zelda</option>
-                <option value="4">Splatoon</option>
-                <option value="5">Kirby</option>
-                <option value="6">Fire Emblem</option>
-                <option value="7">Yoshi's Woolly World</option>
-                <option value="8">Chibi-Robo</option>
+            <select class="buscadorInput" id="inputSerie">
+                <option>Serie de amiibo</option>
+                <option value="Animal Crossing">Animal Crossing</option>
+                <option value="Super Smash Bros">Super Smash Bros</option>
+                <option value="Mario Sports Superstars">Mario Sports Superstars</option>
+                <option value="Legend Of Zelda">Legend Of Zelda</option>
+                <option value="Splatoon">Splatoon</option>
+                <option value="BoxBoy">BoxBoy!</option>
+                <option value="Super Nintendo World">Super Nintendo World</option>
+                <option value="Power Pros">Power Pros</option>
+                <option value="Monster Hunter Rise">Monster Hunter Rise</option>
+                <option value="Mega Man">Mega Man</option>
+                <option value="Yoshi's Woolly World">Yoshi's Woolly World</option>
+                <option value="Metroid">Metroid</option>
+                <option value="Chibi-Robo!">Chibi-Robo!</option>
+                <option value="Monster Hunter">Monster Hunter</option>
+                <option value="Monster Hunter Rise">Monster Hunter Rise</option>
+                <option value="Fire Emblem">Fire Emblem</option>
+                <option value="Skylanders">Skylanders</option>
+                <option value="Pokemon">Pokemon</option>
+                <option value="Yoshi's Woolly World">Yoshi's Woolly World</option>
+                <option value="Shovel Knight">Shovel Knight</option>
+                <option value="Kirby">Kirby</option>
+                <option value="Others">Otros</option>
             </select>
-            <a><button id="btnBuscarSelect" class="bn633-hover bn26">Buscar</button></a>
+            <a><button id="btnBuscarSelectSerie" class="bn633-hover bn26">Buscar</button></a>
+        </div>
+        <div class="buscador">
+            <select class="buscadorInput" id="inputTipo">
+                <option>Tipo de Amiibo</option>
+                <option value="Figure">Figure</option>
+                <option value="Card">Card</option>
+                <option value="Yarn">Yarn</option>
+                <option value="Band">Brand</option>
+            </select>
+            <a><button id="btnBuscarSelectTipo" class="bn633-hover bn26">Buscar</button></a>
         </div>
     </div>
 

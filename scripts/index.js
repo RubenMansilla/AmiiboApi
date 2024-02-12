@@ -4,6 +4,7 @@ let contenedorAmiibo = document.getElementById('contenedorAmiibo'); // Referenci
 let Indice = 0; // Índice inicial para mostrar los primeros 34 amiibos
 const amiibosAMostrar = 32; // Tamaño del lote de amiibos a mostrar
 
+
 // Crear una solicitud XMLHttpRequest para obtener datos de la API
 const request = new XMLHttpRequest();
 request.open('GET', 'https://www.amiiboapi.com/api/amiibo/');
@@ -100,15 +101,95 @@ function mostrarBotonCargar() {
 }
 
 
+function mostrarPersonajeEspecifico(inputNombre) {
+    // Convierte el valor del input a minúsculas para hacer la comparación sin importar mayúsculas/minúsculas
+    const nombreBusqueda = inputNombre.toLowerCase();
 
-/*
+    // Filtra los personajes cuyo nombre contiene el valor ingresado
+    const personajesEncontrados = res.amiibo.filter(personaje => personaje.character.toLowerCase().includes(nombreBusqueda));
 
-function capturarValor() {
-    let valorInput = inputNombre.value;
-    inputNombre.value = "";
-    mostrarPersonajes(valorInput);
+    // Limpia el contenedor de amiibos
+    contenedorAmiibo.innerHTML = '';
+
+    // Si se encuentran personajes, agrégalos al contenedor
+    if (personajesEncontrados.length > 0) {
+        personajesEncontrados.forEach(personaje => {
+            agregarTodosPersonaje(personaje);
+        });
+    } else {
+        // Si no se encuentran personajes, muestra un mensaje de error en el contenedor
+        const mensajeError = document.createElement('div');
+        mensajeError.textContent = 'Personajes no encontrados';
+        contenedorAmiibo.appendChild(mensajeError);
+    }
 }
 
+function capturarValor() {
+    let inputNombre = document.getElementById('inputNombre').value;
+    let inputSerie = document.getElementById('inputSerie').value;
+    let inputTipo = document.getElementById('inputTipo').value;
+    console.log(inputTipo)
+
+    // Limpia el contenedor de amiibos antes de cada búsqueda
+    contenedorAmiibo.innerHTML = '';
+
+    if (inputNombre) {
+        mostrarPersonajeEspecifico(inputNombre);
+    } else if (inputSerie) {
+        mostrarSerieEspecifica(inputSerie);
+    } else if (inputTipo) {
+        mostrarTipoEspecifico(inputTipo);
+    } else {
+        
+    }
+}
+
+function mostrarSerieEspecifica(serieSeleccionada) {
+    const personajesEncontrados = res.amiibo.filter(personaje => personaje.amiiboSeries === serieSeleccionada);
+
+    // Limpia el contenedor de amiibos
+    contenedorAmiibo.innerHTML = '';
+
+    if (personajesEncontrados.length > 0) {
+        personajesEncontrados.forEach(personaje => {
+            agregarTodosPersonaje(personaje);
+        });
+    } else {
+        const mensajeError = document.createElement('div');
+        mensajeError.textContent = 'Personajes de esta serie no encontrados';
+        contenedorAmiibo.appendChild(mensajeError);
+    }
+}
+
+function mostrarTipoEspecifico(tipoSeleccionado) {
+
+    const personajesEncontrados = res.amiibo.filter(personaje => personaje.type === tipoSeleccionado);
+
+    contenedorAmiibo.innerHTML = '';
+
+    if (personajesEncontrados.length > 0) {
+        personajesEncontrados.forEach(personaje => {
+            agregarTodosPersonaje(personaje);
+        });
+    } else {
+        const mensajeError = document.createElement('div');
+        mensajeError.textContent = 'Personajes de este tipo no encontrados';
+        contenedorAmiibo.appendChild(mensajeError);
+    }
+}
+
+
+let btnBuscarNombre = document.getElementById('btnBuscarNombre');
+let btnBuscarSelectSerie = document.getElementById('btnBuscarSelectSerie');
+let btnBuscarSelectTipo = document.getElementById('btnBuscarSelectTipo');
+
+btnBuscarNombre.addEventListener('click', capturarValor);
+btnBuscarSelectSerie.addEventListener('click', capturarValor);
+btnBuscarSelectTipo.addEventListener('click', capturarValor);
+
+
+
+/*
 
 function personajeNoEncontrado() {
     contenedorAmiibo.style.removeProperty("flex-wrap");
