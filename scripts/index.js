@@ -19,7 +19,7 @@ request.onload = function () {
 // Muestra los siguientes amiibos y elimina el botón de carga si es necesario
 function mostrarPersonajes(Indice) {
     // Calcula el límite de amiibos a mostrar (no supera el total de amiibos) 
-    const limite = Math.min(Indice + amiibosAMostrar, res.amiibo.length); 
+    const limite = Math.min(Indice + amiibosAMostrar, res.amiibo.length);
 
     // Agrega cada amiibo al contenedor
     for (let i = Indice; i < limite; i++) {
@@ -49,17 +49,20 @@ function agregarTodosPersonaje(personaje) {
     const nuevoAmiibo = document.createElement('div');
     nuevoAmiibo.className = 'amiibo';
 
-    // Construye el contenido del nuevo amiibo
+    // Obtén las dos primeras palabras del campo character
+    const primerasDosPalabras = personaje.character.split(' ').slice(0, 2).join(' ');
+
+    // Actualiza el contenido HTML con las dos primeras palabras
     nuevoAmiibo.innerHTML = `
-        <div class="cajaAmiiboImg">
-            <img class="imgAmiibo" src="${personaje.image}" alt="${personaje.character}">
-        </div>
-        <div class="amiiboInfo">
-            <h2 class="amiiboNombre">${personaje.character}</h2>
-            <p class="amiiboSerie">${personaje.amiiboSeries}</p>
-            <a><button class="btnMasInformacion bn632-hover bn22">Mas Información</button></a>
-        </div>
-    `;
+    <div class="cajaAmiiboImg">
+        <img class="imgAmiibo" src="${personaje.image}" alt="${personaje.character}">
+    </div>
+    <div class="amiiboInfo">
+        <h2 class="amiiboNombre">${primerasDosPalabras}</h2>
+        <p class="amiiboSerie">${personaje.amiiboSeries}</p>
+        <a><button class="btnMasInformacion bn632-hover bn22">Mas Información</button></a>
+    </div>
+`;
 
     // Agrega el nuevo amiibo al contenedor
     contenedorAmiibo.appendChild(nuevoAmiibo);
