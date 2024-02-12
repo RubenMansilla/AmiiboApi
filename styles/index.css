@@ -144,6 +144,7 @@ body {
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
     background-color: #247cff;
+    transition: 0.7s ease-out;
 }
 
 .amiibo:hover {
