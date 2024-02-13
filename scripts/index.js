@@ -93,7 +93,7 @@ function mostrarBotonCargar() {
 
     // Espera un breve período antes de aplicar la clase para permitir la animación
     setTimeout(() => {
-        botonCargar.style.opacity = '1';
+        botonCargar.style.opacity = '1.5';
     }, 50);
 
     // Agrega el botón al contenedor de amiibos
@@ -105,7 +105,7 @@ function mostrarPersonajeEspecifico(inputNombre) {
     // Convierte el valor del input a minúsculas para hacer la comparación sin importar mayúsculas/minúsculas
     const nombreBusqueda = inputNombre.toLowerCase();
 
-    // Filtra los personajes cuyo nombre contiene el valor ingresado
+    // Filtra los personajes cuyo nombre contiene el valor ingresado en el input de búsqueda y los almacena en un nuevo array de personajes encontrados 
     const personajesEncontrados = res.amiibo.filter(personaje => personaje.character.toLowerCase().includes(nombreBusqueda));
 
     // Limpia el contenedor de amiibos
@@ -145,6 +145,8 @@ function capturarValor() {
 }
 
 function mostrarSerieEspecifica(serieSeleccionada) {
+
+    // Filtra los personajes cuya serie coincide con el valor seleccionado en el input de búsqueda y los almacena en un nuevo array de personajes encontrados
     const personajesEncontrados = res.amiibo.filter(personaje => personaje.amiiboSeries === serieSeleccionada);
 
     // Limpia el contenedor de amiibos
@@ -163,14 +165,18 @@ function mostrarSerieEspecifica(serieSeleccionada) {
 
 function mostrarTipoEspecifico(tipoSeleccionado) {
 
+    // Filtra los personajes cuyo tipo coincide con el valor seleccionado en el input de búsqueda y los almacena en un nuevo array de personajes encontrados
     const personajesEncontrados = res.amiibo.filter(personaje => personaje.type === tipoSeleccionado);
 
     contenedorAmiibo.innerHTML = '';
 
+    // Si se encuentran personajes, agrégalos al contenedor 
     if (personajesEncontrados.length > 0) {
-        personajesEncontrados.forEach(personaje => {
+        // Agrega cada personaje al contenedor de amiibos 
+        personajesEncontrados.forEach(personaje => { 
             agregarTodosPersonaje(personaje);
         });
+    // Si no se encuentran personajes, muestra un mensaje de error en el contenedor
     } else {
         const mensajeError = document.createElement('div');
         mensajeError.textContent = 'Personajes de este tipo no encontrados';
