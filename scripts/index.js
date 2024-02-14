@@ -14,11 +14,11 @@ request.send();
 // Evento que se ejecuta cuando la solicitud se ha completado satisfactoriamente
 request.onload = function () {
     res = request.response; // Asigna la respuesta de la solicitud a la variable res
-    mostraramiibos(Indice); // Inicia la visualización de los primeros amiibos
+    mostrarAmiibos(Indice); // Inicia la visualización de los primeros amiibos
 };
 
 // Muestra los siguientes amiibos y elimina el botón de carga si es necesario
-function mostraramiibos(Indice) {
+function mostrarAmiibos(Indice) {
     // Calcula el límite de amiibos a mostrar (no supera el total de amiibos) 
     // Math.min devuelve el menor de los dos valores pasados como argumentos
     const limite = Math.min(Indice + amiibosAMostrar, res.amiibo.length); 
