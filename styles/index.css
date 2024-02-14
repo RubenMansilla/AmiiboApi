@@ -21,6 +21,8 @@ body {
     justify-content: center;
     align-items: center;
     padding: 20px;
+    background-color: #ffffffb1;
+    backdrop-filter: blur(10);
 }
 
 .imagenLogo {
@@ -32,29 +34,32 @@ body {
 .contenedorBuscador {
     display: flex;
     align-items: center;
-    border: 1px solid #000000;
+    border: 1px solid #8f8f8fb0;
+    background-color: #ffffffb9;
 }
 
 .buscador {
     margin: 20px;
-    border: 1px solid #000000;
+    border: 1px solid #8f8f8fb0;
     width: fit-content;
     width: 40%;
 }
 
 .buscadorInput {
-    background: #f0d698;
+    background: #b8e8e6;
     border-radius: 30px;
     transition: 0.5s ease-out;
-    color: #9e720a;
+    color: #1573aa;
     font-size: 1.5rem;
     font-weight: 100;
     padding: 20px 20px 20px 60px;
     width: 60%;
+    margin-left: 15px;
+    margin-top: 10px;
 }
 
 .buscadorInput::placeholder {
-    color: #9e720a;
+    color: #1573aa;
     font-size: 1.5rem;
     font-weight: 100;
 }
@@ -140,12 +145,13 @@ body {
 .amiibo {
     width: 310px;
     height: 450px;
-    border: 1px solid #000000;
+    border: 1px solid #8f8f8fb0;
     border-radius: 10px;
     transition: ease 1.5s;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
-    background-color: #247cff;
+    background-color: #859bbb5b;
+    backdrop-filter: blur(10);
     transition: 0.7s ease-out;
 }
 
@@ -172,9 +178,9 @@ body {
 }
 
 .amiiboInfo {
-    border: 1px solid #000000;
+    border: 1px solid #8f8f8fb0;
     border-radius: 10px;
-    background-color: white;
+    background-color: rgba(245, 245, 245, 0.653);
     height: 30%;
     width: 90%;
     margin: auto;
