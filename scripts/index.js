@@ -75,8 +75,10 @@ function agregarTodosamiibo(amiibo) {
     }, 50);
 }
 
-// Muestra el botón para cargar más amiibos
 function mostrarBotonCargar() {
+    // Crea un div para contener el botón
+    const divBotonCargar = document.createElement('div');
+
     // Crea el botón
     const botonCargar = document.createElement('button');
 
@@ -89,7 +91,7 @@ function mostrarBotonCargar() {
     // Agrega el evento para cargar más amiibos
     botonCargar.addEventListener('click', function () {
         Indice += amiibosAMostrar; // Incrementa el índice para cargar el siguiente lote
-        mostraramiibos(Indice); // Muestra los siguientes amiibos
+        mostrarAmiibos(Indice); // Muestra los siguientes amiibos
     });
 
     // Espera un breve período antes de aplicar la clase para permitir la animación
@@ -97,9 +99,15 @@ function mostrarBotonCargar() {
         botonCargar.style.opacity = '1.5';
     }, 50);
 
-    // Agrega el botón al contenedor de amiibos
-    contenedorAmiibo.appendChild(botonCargar);
+    // Agrega el botón al div
+    divBotonCargar.appendChild(botonCargar);
+
+    divBotonCargar.classList.add('contenedorBotonCargar');
+
+    // Agrega el div al contenedor de amiibos
+    contenedorAmiibo.appendChild(divBotonCargar);
 }
+
 
 function capturarValor() {
     let inputNombre = document.getElementById('inputNombre').value;
@@ -149,7 +157,6 @@ function buscarPorNombre(tipoSeleccionadoNombre) {
         contenedorAmiibo.appendChild(mensajeError);
     }
 }
-
 
 function buscarPorSerie(tipoSeleccionadoSerie) {
 

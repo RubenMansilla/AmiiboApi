@@ -237,3 +237,9 @@ body {
             #2bb673);
     box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
 }
+
+.contenedorBotonCargar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
