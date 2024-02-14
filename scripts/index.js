@@ -4,7 +4,6 @@ let contenedorAmiibo = document.getElementById('contenedorAmiibo'); // Referenci
 let Indice = 0; // Índice inicial para mostrar los primeros 34 amiibos
 const amiibosAMostrar = 32; // Tamaño del lote de amiibos a mostrar
 
-
 // Crear una solicitud XMLHttpRequest para obtener datos de la API
 const request = new XMLHttpRequest();
 request.open('GET', 'https://www.amiiboapi.com/api/amiibo/');
