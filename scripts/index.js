@@ -14,17 +14,18 @@ request.send();
 // Evento que se ejecuta cuando la solicitud se ha completado satisfactoriamente
 request.onload = function () {
     res = request.response; // Asigna la respuesta de la solicitud a la variable res
-    mostrarPersonajes(Indice); // Inicia la visualización de los primeros amiibos
+    mostraramiibos(Indice); // Inicia la visualización de los primeros amiibos
 };
 
 // Muestra los siguientes amiibos y elimina el botón de carga si es necesario
-function mostrarPersonajes(Indice) {
+function mostraramiibos(Indice) {
     // Calcula el límite de amiibos a mostrar (no supera el total de amiibos) 
-    const limite = Math.min(Indice + amiibosAMostrar, res.amiibo.length);
+    // Math.min devuelve el menor de los dos valores pasados como argumentos
+    const limite = Math.min(Indice + amiibosAMostrar, res.amiibo.length); 
 
     // Agrega cada amiibo al contenedor
     for (let i = Indice; i < limite; i++) {
-        agregarTodosPersonaje(res.amiibo[i]);
+        agregarTodosamiibo(res.amiibo[i]);
     }
 
     // Elimina solo los botones de carga existentes
@@ -45,25 +46,25 @@ function eliminarBotonesCarga() {
 }
 
 // Agrega un amiibo al contenedor de amiibos
-function agregarTodosPersonaje(personaje) {
+function agregarTodosamiibo(amiibo) {
     // Crea un nuevo elemento div para el amiibo
     const nuevoAmiibo = document.createElement('div');
     nuevoAmiibo.className = 'amiibo';
 
     // Obtén las dos primeras palabras del campo character
-    const primerasDosPalabras = personaje.character.split(' ').slice(0, 2).join(' ');
+    const primerasDosPalabras = amiibo.character.split(' ').slice(0, 2).join(' ');
 
     // Actualiza el contenido HTML con las dos primeras palabras
     nuevoAmiibo.innerHTML = `
     <div class="cajaAmiiboImg">
-        <img class="imgAmiibo" src="${personaje.image}" alt="${personaje.character}">
+        <img class="imgAmiibo" src="${amiibo.image}" alt="${amiibo.character}">
     </div>
     <div class="amiiboInfo">
         <h2 class="amiiboNombre">${primerasDosPalabras}</h2>
-        <p class="amiiboSerie">${personaje.amiiboSeries}</p>
+        <p class="amiiboSerie">${amiibo.amiiboSeries}</p>
         <a><button class="btnMasInformacion bn632-hover bn22">Mas Información</button></a>
     </div>
-`;
+    `;
 
     // Agrega el nuevo amiibo al contenedor
     contenedorAmiibo.appendChild(nuevoAmiibo);
@@ -88,7 +89,7 @@ function mostrarBotonCargar() {
     // Agrega el evento para cargar más amiibos
     botonCargar.addEventListener('click', function () {
         Indice += amiibosAMostrar; // Incrementa el índice para cargar el siguiente lote
-        mostrarPersonajes(Indice); // Muestra los siguientes amiibos
+        mostraramiibos(Indice); // Muestra los siguientes amiibos
     });
 
     // Espera un breve período antes de aplicar la clase para permitir la animación
@@ -101,25 +102,25 @@ function mostrarBotonCargar() {
 }
 
 
-function mostrarPersonajeEspecifico(inputNombre) {
+function mostraramiiboEspecifico(inputNombre) {
     // Convierte el valor del input a minúsculas para hacer la comparación sin importar mayúsculas/minúsculas
     const nombreBusqueda = inputNombre.toLowerCase();
 
-    // Filtra los personajes cuyo nombre contiene el valor ingresado en el input de búsqueda y los almacena en un nuevo array de personajes encontrados 
-    const personajesEncontrados = res.amiibo.filter(personaje => personaje.character.toLowerCase().includes(nombreBusqueda));
+    // Filtra los amiibos cuyo nombre contiene el valor ingresado en el input de búsqueda y los almacena en un nuevo array de amiibos encontrados 
+    const amiibosEncontrados = res.amiibo.filter(amiibo => amiibo.character.toLowerCase().includes(nombreBusqueda));
 
     // Limpia el contenedor de amiibos
     contenedorAmiibo.innerHTML = '';
 
-    // Si se encuentran personajes, agrégalos al contenedor
-    if (personajesEncontrados.length > 0) {
-        personajesEncontrados.forEach(personaje => {
-            agregarTodosPersonaje(personaje);
+    // Si se encuentran amiibos, agrégalos al contenedor
+    if (amiibosEncontrados.length > 0) {
+        amiibosEncontrados.forEach(amiibo => {
+            agregarTodosamiibo(amiibo);
         });
     } else {
-        // Si no se encuentran personajes, muestra un mensaje de error en el contenedor
+        // Si no se encuentran amiibos, muestra un mensaje de error en el contenedor
         const mensajeError = document.createElement('div');
-        mensajeError.textContent = 'Personajes no encontrados';
+        mensajeError.textContent = 'amiibos no encontrados';
         contenedorAmiibo.appendChild(mensajeError);
     }
 }
@@ -134,7 +135,7 @@ function capturarValor() {
     contenedorAmiibo.innerHTML = '';
 
     if (inputNombre) {
-        mostrarPersonajeEspecifico(inputNombre);
+        mostraramiiboEspecifico(inputNombre);
     } else if (inputSerie) {
         mostrarSerieEspecifica(inputSerie);
     } else if (inputTipo) {
@@ -146,40 +147,40 @@ function capturarValor() {
 
 function mostrarSerieEspecifica(serieSeleccionada) {
 
-    // Filtra los personajes cuya serie coincide con el valor seleccionado en el input de búsqueda y los almacena en un nuevo array de personajes encontrados
-    const personajesEncontrados = res.amiibo.filter(personaje => personaje.amiiboSeries === serieSeleccionada);
+    // Filtra los amiibos cuya serie coincide con el valor seleccionado en el input de búsqueda y los almacena en un nuevo array de amiibos encontrados
+    const amiibosEncontrados = res.amiibo.filter(amiibo => amiibo.amiiboSeries === serieSeleccionada);
 
     // Limpia el contenedor de amiibos
     contenedorAmiibo.innerHTML = '';
 
-    if (personajesEncontrados.length > 0) {
-        personajesEncontrados.forEach(personaje => {
-            agregarTodosPersonaje(personaje);
+    if (amiibosEncontrados.length > 0) {
+        amiibosEncontrados.forEach(amiibo => {
+            agregarTodosamiibo(amiibo);
         });
     } else {
         const mensajeError = document.createElement('div');
-        mensajeError.textContent = 'Personajes de esta serie no encontrados';
+        mensajeError.textContent = 'amiibos de esta serie no encontrados';
         contenedorAmiibo.appendChild(mensajeError);
     }
 }
 
 function mostrarTipoEspecifico(tipoSeleccionado) {
 
-    // Filtra los personajes cuyo tipo coincide con el valor seleccionado en el input de búsqueda y los almacena en un nuevo array de personajes encontrados
-    const personajesEncontrados = res.amiibo.filter(personaje => personaje.type === tipoSeleccionado);
+    // Filtra los amiibos cuyo tipo coincide con el valor seleccionado en el input de búsqueda y los almacena en un nuevo array de amiibos encontrados
+    const amiibosEncontrados = res.amiibo.filter(amiibo => amiibo.type === tipoSeleccionado);
 
     contenedorAmiibo.innerHTML = '';
 
-    // Si se encuentran personajes, agrégalos al contenedor 
-    if (personajesEncontrados.length > 0) {
-        // Agrega cada personaje al contenedor de amiibos 
-        personajesEncontrados.forEach(personaje => { 
-            agregarTodosPersonaje(personaje);
+    // Si se encuentran amiibos, agrégalos al contenedor 
+    if (amiibosEncontrados.length > 0) {
+        // Agrega cada amiibo al contenedor de amiibos 
+        amiibosEncontrados.forEach(amiibo => { 
+            agregarTodosamiibo(amiibo);
         });
-    // Si no se encuentran personajes, muestra un mensaje de error en el contenedor
+    // Si no se encuentran amiibos, muestra un mensaje de error en el contenedor
     } else {
         const mensajeError = document.createElement('div');
-        mensajeError.textContent = 'Personajes de este tipo no encontrados';
+        mensajeError.textContent = 'amiibos de este tipo no encontrados';
         contenedorAmiibo.appendChild(mensajeError);
     }
 }
@@ -197,7 +198,7 @@ btnBuscarSelectTipo.addEventListener('click', capturarValor);
 
 /*
 
-function personajeNoEncontrado() {
+function amiiboNoEncontrado() {
     contenedorAmiibo.style.removeProperty("flex-wrap");
     contenedorAmiibo.style.flexDirection = "column";
     contenedorAmiibo.innerHTML = `
@@ -211,7 +212,7 @@ function agregarEventoVolver() {
     botonAlerta.addEventListener('click', function () {
         contenedorAmiibo.style.flex = "wrap";
         contenedorAmiibo.style.flexDirection = "";
-        mostrarPersonajes();
+        mostraramiibos();
     });
 }
 

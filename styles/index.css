@@ -12,7 +12,8 @@ header {
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f1c45a;
+    /*background-color: #f1c45a;*/
+    background-image: url(../img/fondo_amiibo.jpg);
 }
 
 .logoContainer {
