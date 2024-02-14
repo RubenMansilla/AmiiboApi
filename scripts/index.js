@@ -74,6 +74,12 @@ function agregarTodosPersonaje(personaje) {
     }, 50);
 }
 
+//Ventana de información del amiibo
+function mostrarInformacion(){
+    
+}
+
+
 // Muestra el botón para cargar más amiibos
 function mostrarBotonCargar() {
     // Crea el botón
