@@ -119,14 +119,14 @@ body {
 /* Estilos para iPad */
 @media screen and (max-width: 1024px) {
     .imagenLogo {
-        width: 80%;
+        width: 50%;
     }
 }
 
 /* Estilos para dispositivos móviles */
 @media screen and (max-width: 480px) {
     .imagenLogo {
-        width: 100%;
+        width: 50%;
     }
 }
 
@@ -153,7 +153,32 @@ body {
     background-color: #859bbb5b;
     backdrop-filter: blur(10);
     transition: 0.7s ease-out;
+    -webkit-animation: scale-up-center 1.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	        animation: scale-up-center 1.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
+
+@-webkit-keyframes scale-up-center {
+    0% {
+      -webkit-transform: scale(0.5);
+              transform: scale(0.5);
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }
+  @keyframes scale-up-center {
+    0% {
+      -webkit-transform: scale(0.5);
+              transform: scale(0.5);
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }
+  
+  
 
 .amiibo:hover {
     transition: ease 0.5s;
@@ -236,4 +261,10 @@ body {
             #30dd8a,
             #2bb673);
     box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+}
+
+.contenedorBotonCargar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
