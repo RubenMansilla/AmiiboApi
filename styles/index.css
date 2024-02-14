@@ -138,7 +138,7 @@ body {
 
 .amiibo {
     width: 310px;
-    height: 480px;
+    height: 450px;
     border: 1px solid #000000;
     border-radius: 10px;
     transition: ease 1.5s;
@@ -187,7 +187,7 @@ body {
     font-family: 'Philosopher', sans-serif;
     font-family: 'Roboto Slab', serif;
     font-size: 1.8rem;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .amiiboSerie {
