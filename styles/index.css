@@ -119,14 +119,14 @@ body {
 /* Estilos para iPad */
 @media screen and (max-width: 1024px) {
     .imagenLogo {
-        width: 80%;
+        width: 50%;
     }
 }
 
 /* Estilos para dispositivos móviles */
 @media screen and (max-width: 480px) {
     .imagenLogo {
-        width: 100%;
+        width: 50%;
     }
 }
 
