@@ -181,8 +181,6 @@ body {
     }
 }
 
-
-
 .amiibo:hover {
     transition: ease 0.5s;
     transform: scale(1.08);
