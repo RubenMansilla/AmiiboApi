@@ -143,18 +143,21 @@ body {
 }
 
 .amiibo {
+    transition: 0.7s ease !important;
     width: 310px;
     height: 450px;
     border: 1px solid #8f8f8fb0;
     border-radius: 10px;
-    transition: ease 1.5s;
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
     background-color: #859bbb5b;
     backdrop-filter: blur(10);
-    transition: 0.7s ease-out;
     -webkit-animation: scale-up-center 1.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     animation: scale-up-center 1.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.amiibo:hover {
+    transform: scale(1.08) !important;
+    transition: ease 0.8s !important;
 }
 
 @-webkit-keyframes scale-up-center {
@@ -179,12 +182,6 @@ body {
         -webkit-transform: scale(1);
         transform: scale(1);
     }
-}
-
-.amiibo:hover {
-    transition: ease 0.5s;
-    transform: scale(1.08);
-
 }
 
 .cajaAmiiboImg {
@@ -229,7 +226,6 @@ body {
         transform: rotateY(180deg);
     }
 }
-
 
 .amiiboInfo {
     border: 1px solid #8f8f8fb0;
