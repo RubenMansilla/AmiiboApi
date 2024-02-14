@@ -137,7 +137,7 @@ body {
 .contenedorAmiibo {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: center ;
     gap: 50px;
     padding-block: 50px;
 }
@@ -194,6 +194,7 @@ body {
     display: flex;
     justify-content: center;
     margin-block: 15px;
+    transform: scaleX(-1);
 }
 
 .imgAmiibo {
