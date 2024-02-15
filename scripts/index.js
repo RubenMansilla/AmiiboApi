@@ -109,7 +109,6 @@ function mostrarBotonCargar() {
     contenedorAmiibo.appendChild(divBotonCargar);
 }
 
-
 function capturarValor() {
     let inputNombre = document.getElementById('inputNombre').value;
     let inputSerie = document.getElementById('inputSerie').value;
@@ -137,6 +136,7 @@ function capturarValor() {
     }
 }
 
+// Realiza la búsqueda de amiibos según el tipo y valor de búsqueda
 function buscar(tipoBusqueda, valorBusqueda) {
     const valorBusquedaLowerCase = valorBusqueda.toLowerCase(); // Convertir a minúsculas
 
@@ -144,6 +144,8 @@ function buscar(tipoBusqueda, valorBusqueda) {
     let amiibosEncontrados;
     switch (tipoBusqueda) {
         case 'nombre':
+            // Filtra los amiibos cuyo nombre coincida con el valor de búsqueda (ignora mayúsculas)
+            // El método filter crea un nuevo array con todos los elementos que cumplan la condición
             amiibosEncontrados = res.amiibo.filter(amiibo => amiibo.character.toLowerCase() === valorBusquedaLowerCase);
             break;
         case 'serie':
