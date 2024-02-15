@@ -237,3 +237,9 @@ function agregarEventoVolver(indice) {
         mostrarAmiibos(indice);
     });
 }
+
+let logo = document.getElementById('logo');
+logo.addEventListener('click', function () {
+    contenedorAmiibo.innerHTML = ``;
+    mostrarAmiibos(Indice);
+});
