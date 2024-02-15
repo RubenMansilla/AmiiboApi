@@ -170,7 +170,7 @@ function buscar(tipoBusqueda, valorBusqueda) {
         case 'nombre':
             // Filtra los amiibos cuyo nombre coincida con el valor de búsqueda (ignora mayúsculas)
             // El método filter crea un nuevo array con todos los elementos que cumplan la condición
-            amiibosEncontrados = res.amiibo.filter(amiibo => amiibo.character.toLowerCase() === valorBusquedaLowerCase);
+            amiibosEncontrados = res.amiibo.filter(amiibo => amiibo.character.toLowerCase().split(' ').some(nombre => nombre === valorBusquedaLowerCase));
             break;
         case 'serie':
             amiibosEncontrados = res.amiibo.filter(amiibo => amiibo.amiiboSeries === valorBusqueda);
