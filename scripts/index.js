@@ -125,17 +125,14 @@ function capturarValor() {
             buscarPorNombreYSerie(inputNombre, inputSerie);
         } else {
         }*/
-        //buscarPorNombre(inputNombre);
         buscar('nombre', inputNombre);
     } else if (this.id === 'btnBuscarSelectSerie') {
         /*if (inputNombre && inputSerie) {
             buscarPorNombreYSerie(inputNombre, inputSerie);
         } else {
         }*/
-        //buscarPorSerie(inputSerie);
         buscar('serie', inputSerie);
     } else if (this.id === 'btnBuscarSelectTipo') {
-        //buscarPorTipo(inputTipo);
         buscar('tipo', inputTipo);
     }
 }
