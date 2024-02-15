@@ -226,8 +226,9 @@ function mostrarInformacion(amiibo) {
 }
 
 function amiiboNoEncontrado() {
-    contenedorAmiibo.innerHTML = `
-        <div class="alerta">
+    // Configura la transición de opacidad en 2 segundos
+    const alertaHTML = `
+        <div class="alerta" style="opacity: 0; transition: opacity 2s ease-in-out;">
             <div class="iconoAlerta">
                 <img src="img/icon.png">
             </div>
@@ -235,11 +236,25 @@ function amiiboNoEncontrado() {
                 <p>El personaje que buscas no existe, inténtalo de nuevo</p>
             </div>
         </div>
-        <div class="cajaBtnAtras">
+        <div class="cajaBtnAtras" style="opacity: 0; transition: opacity 2s ease-in-out;">
             <button class="btnMasInformacion bn632-hover bn22" id="botonAlerta">Volver</button>
         </div>
     `;
-    agregarEventoVolver(Indice);
+
+    // Retrasa la ejecución de la función amiiboNoEncontrado en 2 segundos
+    setTimeout(function () {
+        contenedorAmiibo.innerHTML = alertaHTML;
+
+        // Aplica la opacidad después de un breve período para activar la transición
+        setTimeout(() => {
+            const alerta = document.querySelector('.alerta');
+            const cajaBtnAtras = document.querySelector('.cajaBtnAtras');
+            alerta.style.opacity = '1';
+            cajaBtnAtras.style.opacity = '1';
+        }, 50);
+
+        agregarEventoVolver(Indice);
+    }, 1500); // 1500 milisegundos (1.5 segundos)
 }
 
 function agregarEventoVolver(indice) {
@@ -255,5 +270,5 @@ let logo = document.getElementById('logo');
 logo.addEventListener('click', function () {
     contenedorAmiibo.innerHTML = ``;
     indice = 0;
-    mostrarAmiibos(Indice);
+    mostrarAmiibos(indice);
 });

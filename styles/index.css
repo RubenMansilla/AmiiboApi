@@ -232,7 +232,7 @@ body {
     border-radius: 10px;
     background-color: rgba(245, 245, 245, 0.653);
     height: 30%;
-    width: 90%;
+    max-width: 90%;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -297,7 +297,6 @@ body {
 .alerta {
     width: 55%;
     padding: 10px;
-    margin-top: 40px;
     color: #380c10;
     background-color: #f99c9c;
     border: 3px solid #b15d654d;
