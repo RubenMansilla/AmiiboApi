@@ -50,7 +50,9 @@ function agregarTodosamiibo(amiibo) {
     const nuevoAmiibo = document.createElement('div');
     nuevoAmiibo.className = 'amiibo';
 
-    // Obtén las dos primeras palabras del campo character
+    // Obtén las dos primeras palabras del campo character del amiibo
+    // El método split divide una cadena en un array de subcadenas y el método slice devuelve 
+    //una copia de una parte de un array dentro de un nuevo array
     const primerasDosPalabras = amiibo.character.split(' ').slice(0, 2).join(' ');
 
     // Actualiza el contenido HTML con las dos primeras palabras
@@ -123,88 +125,63 @@ function capturarValor() {
             buscarPorNombreYSerie(inputNombre, inputSerie);
         } else {
         }*/
-        buscarPorNombre(inputNombre);
+        //buscarPorNombre(inputNombre);
+        buscar('nombre', inputNombre);
     } else if (this.id === 'btnBuscarSelectSerie') {
         /*if (inputNombre && inputSerie) {
             buscarPorNombreYSerie(inputNombre, inputSerie);
         } else {
         }*/
-        buscarPorSerie(inputSerie);
+        //buscarPorSerie(inputSerie);
+        buscar('serie', inputSerie);
     } else if (this.id === 'btnBuscarSelectTipo') {
-        buscarPorTipo(inputTipo);
+        //buscarPorTipo(inputTipo);
+        buscar('tipo', inputTipo);
     }
 }
 
-function buscarPorNombre(tipoSeleccionadoNombre) {
-    const nombreBusqueda = tipoSeleccionadoNombre.toLowerCase(); // Convertir a minúsculas
+function buscar(tipoBusqueda, valorBusqueda) {
+    const valorBusquedaLowerCase = valorBusqueda.toLowerCase(); // Convertir a minúsculas
 
-    // Filtra los amiibos cuyo tipo coincide con el valor seleccionado en el input de búsqueda y los almacena en un nuevo array de amiibos encontrados
-    const amiibosEncontrados = res.amiibo.filter(amiibo => amiibo.character.toLowerCase() === nombreBusqueda);
+    // Realiza la búsqueda según el tipo seleccionado
+    let amiibosEncontrados;
+    switch (tipoBusqueda) {
+        case 'nombre':
+            amiibosEncontrados = res.amiibo.filter(amiibo => amiibo.character.toLowerCase() === valorBusquedaLowerCase);
+            break;
+        case 'serie':
+            amiibosEncontrados = res.amiibo.filter(amiibo => amiibo.amiiboSeries === valorBusqueda);
+            break;
+        case 'tipo':
+            amiibosEncontrados = res.amiibo.filter(amiibo => amiibo.type === valorBusqueda);
+            break;
+        default:
+            console.error('Tipo de búsqueda no válido');
+            return;
+    }
 
     contenedorAmiibo.innerHTML = '';
 
-    // Si se encuentran amiibos, agrégalos al contenedor 
+    // Si se encuentran amiibos, agrégalos al contenedor
     if (amiibosEncontrados.length > 0) {
-        // Agrega cada amiibo al contenedor de amiibos 
-        amiibosEncontrados.forEach(amiibo => {
-            agregarTodosamiibo(amiibo);
-        });
-        // Si no se encuentran amiibos, muestra un mensaje de error en el contenedor
+        // Agrega cada amiibo al contenedor de amiibos
+        for (let i = 0; i < amiibosEncontrados.length; i++) {
+            agregarTodosamiibo(amiibosEncontrados[i]);
+        }
     } else {
+        // Si no se encuentran amiibos, muestra un mensaje de error en el contenedor
         const mensajeError = document.createElement('div');
-        mensajeError.textContent = 'amiibos de este tipo no encontrados';
+        mensajeError.textContent = `Amiibos de ${tipoBusqueda} no encontrados`;
         contenedorAmiibo.appendChild(mensajeError);
     }
 }
 
-function buscarPorSerie(tipoSeleccionadoSerie) {
-
-    // Filtra los amiibos cuyo tipo coincide con el valor seleccionado en el input de búsqueda y los almacena en un nuevo array de amiibos encontrados
-    const amiibosEncontrados = res.amiibo.filter(amiibo => amiibo.amiiboSeries === tipoSeleccionadoSerie);
-
-    contenedorAmiibo.innerHTML = '';
-
-    // Si se encuentran amiibos, agrégalos al contenedor 
-    if (amiibosEncontrados.length > 0) {
-        // Agrega cada amiibo al contenedor de amiibos 
-        amiibosEncontrados.forEach(amiibo => {
-            agregarTodosamiibo(amiibo);
-        });
-        // Si no se encuentran amiibos, muestra un mensaje de error en el contenedor
-    } else {
-        const mensajeError = document.createElement('div');
-        mensajeError.textContent = 'amiibos de este tipo no encontrados';
-        contenedorAmiibo.appendChild(mensajeError);
-    }
-
-}
-
-function buscarPorTipo(tipoSeleccionadoTipo) {
-
-    // Filtra los amiibos cuyo tipo coincide con el valor seleccionado en el input de búsqueda y los almacena en un nuevo array de amiibos encontrados
-    const amiibosEncontrados = res.amiibo.filter(amiibo => amiibo.type === tipoSeleccionadoTipo);
-
-    contenedorAmiibo.innerHTML = '';
-
-    // Si se encuentran amiibos, agrégalos al contenedor 
-    if (amiibosEncontrados.length > 0) {
-        // Agrega cada amiibo al contenedor de amiibos 
-        amiibosEncontrados.forEach(amiibo => {
-            agregarTodosamiibo(amiibo);
-        });
-        // Si no se encuentran amiibos, muestra un mensaje de error en el contenedor
-    } else {
-        const mensajeError = document.createElement('div');
-        mensajeError.textContent = 'amiibos de este tipo no encontrados';
-        contenedorAmiibo.appendChild(mensajeError);
-    }
-}
-
-
+// Referencias a los botones de búsqueda 
 let btnBuscarNombre = document.getElementById('btnBuscarNombre');
 let btnBuscarSelectSerie = document.getElementById('btnBuscarSelectSerie');
 let btnBuscarSelectTipo = document.getElementById('btnBuscarSelectTipo');
 
+// Agrega un evento a cada botón de búsqueda
 btnBuscarNombre.addEventListener('click', capturarValor);
 btnBuscarSelectSerie.addEventListener('click', capturarValor);
 btnBuscarSelectTipo.addEventListener('click', capturarValor);
