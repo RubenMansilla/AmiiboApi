@@ -234,6 +234,7 @@ function agregarEventoVolver(indice) {
     let botonAlerta = document.getElementById('botonAlerta');
     botonAlerta.addEventListener('click', function () {
         contenedorAmiibo.innerHTML = ``;
+        indice = 0;
         mostrarAmiibos(indice);
     });
 }
@@ -241,5 +242,6 @@ function agregarEventoVolver(indice) {
 let logo = document.getElementById('logo');
 logo.addEventListener('click', function () {
     contenedorAmiibo.innerHTML = ``;
+    indice = 0;
     mostrarAmiibos(Indice);
 });
