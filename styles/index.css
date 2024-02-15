@@ -293,3 +293,44 @@ body {
     display: flex;
     justify-content: center;
 }
+
+.alerta {
+    width: 55%;
+    padding: 10px;
+    margin-top: 40px;
+    color: #380c10;
+    background-color: #f99c9c;
+    border: 3px solid #b15d654d;
+    font-weight: bold;
+    text-align: center;
+    animation-name: opacity;
+    animation-duration: 2s;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.textoAlerta {
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+}
+
+.iconoAlerta {
+    margin-right: 10px;
+}
+
+.iconoAlerta img {
+    width: 30px;
+    height: 30px;
+}
+
+.cajaBtnAtras {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

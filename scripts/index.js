@@ -100,9 +100,6 @@ function agregarTodosamiibo(amiibo) {
     }, 50);
 }
 
-// ... (código posterior)
-
-
 function mostrarBotonCargar() {
     // Crea un div para contener el botón
     const divBotonCargar = document.createElement('div');
@@ -195,10 +192,7 @@ function buscar(tipoBusqueda, valorBusqueda) {
             agregarTodosamiibo(amiibosEncontrados[i]);
         }
     } else {
-        // Si no se encuentran amiibos, muestra un mensaje de error en el contenedor
-        const mensajeError = document.createElement('div');
-        mensajeError.textContent = `Amiibos de ${tipoBusqueda} no encontrados`;
-        contenedorAmiibo.appendChild(mensajeError);
+        amiiboNoEncontrado();
     }
 }
 
@@ -213,33 +207,33 @@ btnBuscarSelectSerie.addEventListener('click', capturarValor);
 btnBuscarSelectTipo.addEventListener('click', capturarValor);
 
 
-
 //Ventana de información del amiibo
 function mostrarInformacion(amiibo) {
     // Lógica para mostrar información del amiibo, puedes implementar esto según tus necesidades
     console.log('Mostrar información de:', amiibo);
 }
 
-
-
-/*
-
 function amiiboNoEncontrado() {
-    contenedorAmiibo.style.removeProperty("flex-wrap");
-    contenedorAmiibo.style.flexDirection = "column";
     contenedorAmiibo.innerHTML = `
-        
+        <div class="alerta">
+            <div class="iconoAlerta">
+                <img src="img/icon.png">
+            </div>
+            <div class="textoAlerta">
+                <p>El personaje que buscas no existe, inténtalo de nuevo</p>
+            </div>
+        </div>
+        <div class="cajaBtnAtras">
+            <button class="btnMasInformacion bn632-hover bn22" id="botonAlerta">Volver</button>
+        </div>
     `;
-    agregarEventoVolver();
+    agregarEventoVolver(Indice);
 }
 
-function agregarEventoVolver() {
+function agregarEventoVolver(indice) {
     let botonAlerta = document.getElementById('botonAlerta');
     botonAlerta.addEventListener('click', function () {
-        contenedorAmiibo.style.flex = "wrap";
-        contenedorAmiibo.style.flexDirection = "";
-        mostraramiibos();
+        contenedorAmiibo.innerHTML = ``;
+        mostrarAmiibos(indice);
     });
 }
-
-*/
