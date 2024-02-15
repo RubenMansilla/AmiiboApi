@@ -1,19 +1,36 @@
 // Declaración de variables
 let res; // Almacena la respuesta de la solicitud a la API
+let res2; // Almacena la respuesta de la solicitud a la API
 let contenedorAmiibo = document.getElementById('contenedorAmiibo'); // Referencia al contenedor de amiibos en el DOM
 let Indice = 0; // Índice inicial para mostrar los primeros 34 amiibos
 const amiibosAMostrar = 32; // Tamaño del lote de amiibos a mostrar
 
+
 // Crear una solicitud XMLHttpRequest para obtener datos de la API
 const request = new XMLHttpRequest();
+const request2 = new XMLHttpRequest();
+
+// Inicializa la solicitud con el método y la URL de la API de amiibos
 request.open('GET', 'https://www.amiiboapi.com/api/amiibo/');
+request2.open('GET', 'https://www.amiiboapi.com/api/amiibo/?showusage/');
+
+// Establece el tipo de respuesta que se espera de la solicitud
 request.responseType = 'json';
+request2.responseType = 'json';
+
+// Envía la solicitud a la API
 request.send();
+request2.send();
 
 // Evento que se ejecuta cuando la solicitud se ha completado satisfactoriamente
 request.onload = function () {
     res = request.response; // Asigna la respuesta de la solicitud a la variable res
     mostrarAmiibos(Indice); // Inicia la visualización de los primeros amiibos
+};
+
+// Evento que se ejecuta cuando la solicitud se ha completado satisfactoriamente
+request2.onload = function () {
+    res2 = request2.response; // Asigna la respuesta de la solicitud a la variable res
 };
 
 // Muestra los siguientes amiibos y elimina el botón de carga si es necesario
@@ -45,27 +62,34 @@ function eliminarBotonesCarga() {
 }
 
 // Agrega un amiibo al contenedor de amiibos
+// ... (código anterior)
+
+// Agrega un amiibo al contenedor de amiibos
 function agregarTodosamiibo(amiibo) {
     // Crea un nuevo elemento div para el amiibo
     const nuevoAmiibo = document.createElement('div');
     nuevoAmiibo.className = 'amiibo';
 
     // Obtén las dos primeras palabras del campo character del amiibo
-    // El método split divide una cadena en un array de subcadenas y el método slice devuelve 
-    //una copia de una parte de un array dentro de un nuevo array
     const primerasDosPalabras = amiibo.character.split(' ').slice(0, 2).join(' ');
 
     // Actualiza el contenido HTML con las dos primeras palabras
     nuevoAmiibo.innerHTML = `
-    <div class="cajaAmiiboImg">
-        <img class="imgAmiibo" src="${amiibo.image}" alt="${amiibo.character}">
-    </div>
-    <div class="amiiboInfo">
-        <h2 class="amiiboNombre">${primerasDosPalabras}</h2>
-        <p class="amiiboSerie">${amiibo.amiiboSeries}</p>
-        <a><button class="btnMasInformacion bn632-hover bn22">Mas Información</button></a>
-    </div>
+        <div class="cajaAmiiboImg">
+            <img class="imgAmiibo" src="${amiibo.image}" alt="${amiibo.character}">
+        </div>
+        <div class="amiiboInfo">
+            <h2 class="amiiboNombre">${primerasDosPalabras}</h2>
+            <p class="amiiboSerie">${amiibo.amiiboSeries}</p>
+            <a><button class="btnMasInformacion bn632-hover bn22">Mas Información</button></a>
+        </div>
     `;
+
+    // Asigna el evento de clic al botón de información
+    const btnMasInformacion = nuevoAmiibo.querySelector('.btnMasInformacion');
+    btnMasInformacion.addEventListener('click', function () {
+        mostrarInformacion(amiibo);
+    });
 
     // Agrega el nuevo amiibo al contenedor
     contenedorAmiibo.appendChild(nuevoAmiibo);
@@ -75,6 +99,9 @@ function agregarTodosamiibo(amiibo) {
         nuevoAmiibo.style.opacity = '1';
     }, 50);
 }
+
+// ... (código posterior)
+
 
 function mostrarBotonCargar() {
     // Crea un div para contener el botón
@@ -188,9 +215,11 @@ btnBuscarSelectTipo.addEventListener('click', capturarValor);
 
 
 //Ventana de información del amiibo
-function mostrarInformacion() {
-
+function mostrarInformacion(amiibo) {
+    // Lógica para mostrar información del amiibo, puedes implementar esto según tus necesidades
+    console.log('Mostrar información de:', amiibo);
 }
+
 
 
 /*
