@@ -33,6 +33,16 @@ request2.onload = function () {
     res2 = request2.response; // Asigna la respuesta de la solicitud a la variable res
 };
 
+function eliminarAnimacionDespues1_4s() {
+    setTimeout(() => {
+        let amiiboElements = document.querySelectorAll('.amiibo');
+        amiiboElements.forEach(element => {
+            element.style.animation = 'none';
+            element.style.webkitAnimation = 'none';
+        });
+    }, 1400);
+}
+
 // Muestra los siguientes amiibos y elimina el botón de carga si es necesario
 function mostrarAmiibos(Indice) {
     // Calcula el límite de amiibos a mostrar (no supera el total de amiibos) 
@@ -76,7 +86,7 @@ function agregarTodosamiibo(amiibo) {
     // Actualiza el contenido HTML con las dos primeras palabras
     nuevoAmiibo.innerHTML = `
         <div class="cajaAmiiboImg">
-            <img class="imgAmiibo" src="${amiibo.image}" alt="${amiibo.character}">
+            <img class="imgAmiibo" src="${amiibo.image}" alt="Foto de ${amiibo.character}">
         </div>
         <div class="amiiboInfo">
             <h2 class="amiiboNombre">${primerasDosPalabras}</h2>
@@ -98,6 +108,8 @@ function agregarTodosamiibo(amiibo) {
     setTimeout(() => {
         nuevoAmiibo.style.opacity = '1';
     }, 50);
+
+    eliminarAnimacionDespues1_4s();
 }
 
 function mostrarBotonCargar() {
