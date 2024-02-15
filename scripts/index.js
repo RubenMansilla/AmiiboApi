@@ -5,7 +5,6 @@ let contenedorAmiibo = document.getElementById('contenedorAmiibo'); // Referenci
 let Indice = 0; // Índice inicial para mostrar los primeros 34 amiibos
 const amiibosAMostrar = 32; // Tamaño del lote de amiibos a mostrar
 
-
 // Crear una solicitud XMLHttpRequest para obtener datos de la API
 const request = new XMLHttpRequest();
 const request2 = new XMLHttpRequest();
@@ -46,7 +45,6 @@ function eliminarAnimacionDespues1_4s() {
 // Muestra los siguientes amiibos y elimina el botón de carga si es necesario
 function mostrarAmiibos(Indice) {
     // Calcula el límite de amiibos a mostrar (no supera el total de amiibos) 
-    // Math.min devuelve el menor de los dos valores pasados como argumentos
     const limite = Math.min(Indice + amiibosAMostrar, res.amiibo.length);
 
     // Agrega cada amiibo al contenedor
@@ -70,9 +68,6 @@ function eliminarBotonesCarga() {
         boton.parentNode.removeChild(boton);
     });
 }
-
-// Agrega un amiibo al contenedor de amiibos
-// ... (código anterior)
 
 // Agrega un amiibo al contenedor de amiibos
 function agregarTodosamiibo(amiibo) {
@@ -155,17 +150,8 @@ function capturarValor() {
 
     // Llama a la función correspondiente según el botón presionado
     if (this.id === 'btnBuscarNombre') {
-        /*
-        if (inputNombre && inputSerie) {
-            buscarPorNombreYSerie(inputNombre, inputSerie);
-        } else {
-        }*/
         buscar('nombre', inputNombre);
     } else if (this.id === 'btnBuscarSelectSerie') {
-        /*if (inputNombre && inputSerie) {
-            buscarPorNombreYSerie(inputNombre, inputSerie);
-        } else {
-        }*/
         buscar('serie', inputSerie);
     } else if (this.id === 'btnBuscarSelectTipo') {
         buscar('tipo', inputTipo);
@@ -180,8 +166,6 @@ function buscar(tipoBusqueda, valorBusqueda) {
     let amiibosEncontrados;
     switch (tipoBusqueda) {
         case 'nombre':
-            // Filtra los amiibos cuyo nombre coincida con el valor de búsqueda (ignora mayúsculas)
-            // El método filter crea un nuevo array con todos los elementos que cumplan la condición
             amiibosEncontrados = res.amiibo.filter(amiibo => amiibo.character.toLowerCase().split(' ').some(nombre => nombre === valorBusquedaLowerCase));
             break;
         case 'serie':
@@ -199,7 +183,6 @@ function buscar(tipoBusqueda, valorBusqueda) {
 
     // Si se encuentran amiibos, agrégalos al contenedor
     if (amiibosEncontrados.length > 0) {
-        // Agrega cada amiibo al contenedor de amiibos
         for (let i = 0; i < amiibosEncontrados.length; i++) {
             agregarTodosamiibo(amiibosEncontrados[i]);
         }
@@ -217,7 +200,6 @@ let btnBuscarSelectTipo = document.getElementById('btnBuscarSelectTipo');
 btnBuscarNombre.addEventListener('click', capturarValor);
 btnBuscarSelectSerie.addEventListener('click', capturarValor);
 btnBuscarSelectTipo.addEventListener('click', capturarValor);
-
 
 //Ventana de información del amiibo
 function mostrarInformacion(amiibo) {
