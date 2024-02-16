@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    justify-content: center;
+    text-align: center;
 }
 .ventanaInfo{
     margin:auto;    
@@ -72,4 +74,9 @@
     background-color: yellow;
     width: 30px;
     height: 30px;
+}
+#btnInfo{
+    width:150px;
+    border: 1px solid greenyellow;
+    border-radius: 5px;
 }
