@@ -236,7 +236,7 @@ function amiiboNoEncontrado() {
         }, 50);
 
         agregarEventoVolver(Indice);
-    }, 1500); // 1500 milisegundos (1.5 segundos)
+    }, 500); // 500 milisegundos (0.5 segundos)
 }
 
 function agregarEventoVolver(indice) {
