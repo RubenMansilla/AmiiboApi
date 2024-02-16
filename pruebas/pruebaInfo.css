@@ -1,82 +1,114 @@
-*{
+/* Estilos globales */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     justify-content: center;
     text-align: center;
 }
-.ventanaInfo{
-    margin:auto;    
+
+/* Estilos para el contenedor principal de la ventana de información */
+.ventanaInfo {
+    margin: auto;    
     max-width: 900px;
     height: 500px;
     display: flex;
+    position: relative;
     align-items: center;
     justify-content: center;
     background-color: aqua;
-
 }
-.textoEImg{
+
+/* Contenedor para texto e imagen dentro de la ventana */
+.textoEImg {
     display: flex;
-    padding: 15px;
-    width:95%;
+    width: 95%;
     height: 95%;
     background-color: black;
 }
-.cajaImg{
-    margin-left: 25px;
+
+/* Contenedor para la imagen */
+.cajaImg {
+    margin-right: 50px;
     background-color: red;
     width: 30%;
     height: 100%;
+    /* Imagen de fondo */
     background-image: url("https://img.freepik.com/foto-gratis/disparo-vertical-puente-madera-medio-bosque_181624-39776.jpg?size=626&ext=jpg&ga=GA1.1.1803636316.1707868800&semt=ais");
 }
-.cajaInfo{
-    margin-left: 25px;
+
+/* Contenedor para la información */
+.cajaInfo {
+    margin-left: 50px;
     background-color: brown;
     width: 60%;
     height: 100%;
     text-align: center;
 }
 
-.nombreAmiibo{
+/* Estilos para el nombre del amiibo */
+.nombreAmiibo {
     align-items: center;
-    
 }
-.cajaSerie{
-    width: fit-content;
-    border: 2px solid black;
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-.cajaFecha{
-    width: fit-content;
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-.cajaUso{
+
+/* Estilos para las diferentes secciones de información */
+.cajaSerie,
+.cajaFecha,
+.cajaUso,
+.cajaJuego,
+.cajaTipo {
     width: fit-content;
     margin-top: 30px;
     margin-bottom: 30px;
 }
-.cajaJuego{
-    width: fit-content;
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-.cajaTipo{
-    width: fit-content;
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-.cajaBtn{
-    position: relative;
+
+/* Botón de cierre */
+.cajaBtn {
+    position: absolute;
     top: 0;
     right: 0;
     background-color: yellow;
     width: 30px;
     height: 30px;
 }
-#btnInfo{
-    width:150px;
-    border: 1px solid greenyellow;
+
+.btnCerrar {
+    width: 30px;
+    height: 30px;
+    /* Imagen de fondo para el botón de cierre */
+    background-image: url("https://cdn-icons-png.flaticon.com/512/1/1766.png");
+    background-size: cover;
+}
+
+/* Botón de información */
+#btnInfo {
+    width: 150px;
+    border: 1px solid rgb(0, 0, 0);
     border-radius: 5px;
+}
+
+/* Estilos para pantallas más grandes (tabletas y escritorios) */
+@media screen and (min-width: 768px) {
+    .contenedorBuscador {
+        flex-direction: row; /* Cambiado a fila para pantallas más grandes */
+        justify-content: center; /* Centra los buscadores horizontalmente */
+    }
+
+    .buscador {
+        margin: 20px;
+    }
+}
+
+/* Estilos para iPad */
+@media screen and (max-width: 1024px) {
+    .imagenLogo {
+        width: 50%;
+    }
+}
+
+/* Estilos para dispositivos móviles */
+@media screen and (max-width: 480px) {
+    .imagenLogo {
+        width: 50%;
+    }
 }
