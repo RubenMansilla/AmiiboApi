@@ -149,12 +149,14 @@ function capturarValor() {
     contenedorAmiibo.innerHTML = '';
 
     // Llama a la función correspondiente según el botón presionado
-    if (this.id === 'btnBuscarNombre') {
+    if (this.id === 'btnBuscarNombre' && inputNombre !== '') {
         buscar('nombre', inputNombre);
-    } else if (this.id === 'btnBuscarSelectSerie') {
+    } else if (this.id === 'btnBuscarSelectSerie' && inputSerie !== 'Serie de amiibo') {
         buscar('serie', inputSerie);
-    } else if (this.id === 'btnBuscarSelectTipo') {
+    } else if (this.id === 'btnBuscarSelectTipo' && inputTipo !== 'Tipo de Amiibo') {
         buscar('tipo', inputTipo);
+    } else {
+        mostrarAmiibos(Indice);
     }
 }
 
