@@ -21,7 +21,6 @@ body {
     justify-content: center;
     align-items: center;
     padding: 20px;
-    background-color: #ffffffb1;
     backdrop-filter: blur(10);
 }
 
@@ -31,47 +30,99 @@ body {
     cursor: pointer;
 }
 
+/* Estilos para iPad */
+@media screen and (max-width: 1024px) {
+    .imagenLogo {
+        width: 80%;
+    }
+}
+
+/* Estilos para dispositivos móviles */
+@media screen and (max-width: 480px) {
+    .imagenLogo {
+        width: 90%;
+    }
+}
+
+.imagenLogo:hover {
+    transform: scale(1.2);
+}
+
 .contenedorBuscador {
+    margin: auto;
     display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
     align-items: center;
-    border: 1px solid #8f8f8fb0;
-    background-color: #ffffffb9;
+    padding: 20px;
 }
 
 .buscador {
-    margin: 20px;
-    border: 1px solid #8f8f8fb0;
-    width: fit-content;
-    width: 40%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+@media screen and (min-width: 768px) {
+    .contenedorBuscador {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .buscador {
+        margin: 0 10px;
+        /* Ajusta el espacio entre los buscadores si es necesario */
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .contenedorBuscador {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .buscadorInput {
+        padding: 15px 10px 15px 15px;
+    }
+
+    .buscador {
+        margin: 0 10px;
+        justify-content: center;
+        text-align: center;
+    }
 }
 
 .buscadorInput {
     background: #b8e8e6;
     border-radius: 30px;
-    transition: 0.5s ease-out;
     color: #1573aa;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    padding: 20px 10px 20px 20px;
     font-weight: 100;
-    padding: 20px 20px 20px 60px;
-    width: 60%;
-    margin-left: 15px;
-    margin-top: 10px;
 }
 
 .buscadorInput::placeholder {
     color: #1573aa;
-    font-size: 1.5rem;
-    font-weight: 100;
+    font-size: 1.3rem;
+    
+}
+@media screen and (max-width: 480px){
+    .buscadorInput::placeholder {
+        font-size: 1rem;
+    }
+    
 }
 
-.bn633-hover {
-    width: 160px;
+.btnBuscar {
+    width: 100px;
+    height: 45px;
     font-size: 16px;
     font-weight: 600;
     color: #fff;
     cursor: pointer;
-    margin: 20px;
-    height: 55px;
     text-align: center;
     border: none;
     background-size: 300% 100%;
@@ -81,18 +132,32 @@ body {
     transition: all .4s ease-in-out;
 }
 
-.bn633-hover:hover {
+@media screen and (max-width: 480px) {
+    .buscadorInput {
+        padding: 10px 10px 10px 10px;
+        font-size: 0.8rem;
+    }
+
+    .btnBuscar {
+        width: 70px;
+        height: 35px;
+        font-size: 12px;
+    }
+
+}
+
+.btnBuscar:hover {
     background-position: 100% 0;
     -o-transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
 }
 
-.bn633-hover:focus {
+.btnBuscar:focus {
     outline: none;
 }
 
-.bn633-hover.bn26 {
+.btnBuscar {
     background-image: linear-gradient(to right,
             #25aae1,
             #4481eb,
@@ -101,43 +166,10 @@ body {
     box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
 }
 
-@media screen and (min-width: 768px) {
-
-    /* Estilos para pantallas más grandes, ajusta el valor según sea necesario */
-    .contenedorBuscador {
-        flex-direction: row;
-        /* Cambiado a fila para pantallas más grandes */
-        justify-content: center;
-        /* Centra los buscadores horizontalmente */
-    }
-
-    .buscador {
-        margin: 20px;
-    }
-}
-
-/* Estilos para iPad */
-@media screen and (max-width: 1024px) {
-    .imagenLogo {
-        width: 50%;
-    }
-}
-
-/* Estilos para dispositivos móviles */
-@media screen and (max-width: 480px) {
-    .imagenLogo {
-        width: 50%;
-    }
-}
-
-.imagenLogo:hover {
-    transform: scale(1.2);
-}
-
 .contenedorAmiibo {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center ;
+    justify-content: center;
     gap: 50px;
     padding-block: 50px;
 }
@@ -252,7 +284,7 @@ body {
     font-size: 1..5rem;
 }
 
-.bn632-hover {
+.btnMasInformacion {
     width: 160px;
     font-size: 16px;
     font-weight: 600;
@@ -268,18 +300,18 @@ body {
     transition: all .4s ease-in-out;
 }
 
-.bn632-hover:hover {
+.btnMasInformacion:hover {
     background-position: 100% 0;
     -o-transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
 }
 
-.bn632-hover:focus {
+.btnMasInformacion:focus {
     outline: none;
 }
 
-.bn632-hover.bn22 {
+.btnMasInformacion {
     background-image: linear-gradient(to right,
             #0ba360,
             #3cba92,

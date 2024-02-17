@@ -118,7 +118,7 @@ function mostrarBotonCargar() {
     botonCargar.textContent = 'Ver más';
 
     // Estilos del botón
-    botonCargar.classList.add('btnCargarMas', 'bn632-hover', 'bn22');
+    botonCargar.classList.add('btnCargarMas', 'btnMasInformacion');
 
     // Agrega el evento para cargar más amiibos
     botonCargar.addEventListener('click', function () {
@@ -219,7 +219,7 @@ function amiiboNoEncontrado() {
             </div>
         </div>
         <div class="cajaBtnAtras" style="opacity: 0; transition: opacity 2s ease-in-out;">
-            <button class="btnMasInformacion bn632-hover bn22" id="botonAlerta">Volver</button>
+            <button class="btnMasInformacion" id="botonAlerta">Volver</button>
         </div>
     `;
 
