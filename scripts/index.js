@@ -140,68 +140,59 @@ function mostrarBotonCargar() {
     contenedorAmiibo.appendChild(divBotonCargar);
 }
 
-function capturarValor() {
-    let inputNombre = document.getElementById('inputNombre').value;
+// Realiza la búsqueda de amiibos según el tipo y valor de búsqueda
+function buscarAmiibo() {
+    // Obtiene los valores de los inputs y los normaliza
+    let inputNombre = document.getElementById('inputNombre').value.trim().toLowerCase();
     let inputSerie = document.getElementById('inputSerie').value;
     let inputTipo = document.getElementById('inputTipo').value;
 
     // Limpia el contenedor de amiibos antes de cada búsqueda
     contenedorAmiibo.innerHTML = '';
 
-    // Llama a la función correspondiente según el botón presionado
-    if (this.id === 'btnBuscarNombre' && inputNombre !== '') {
-        buscar('nombre', inputNombre);
-    } else if (this.id === 'btnBuscarSelectSerie' && inputSerie !== 'Serie de amiibo') {
-        buscar('serie', inputSerie);
-    } else if (this.id === 'btnBuscarSelectTipo' && inputTipo !== 'Tipo de Amiibo') {
-        buscar('tipo', inputTipo);
+    // Realiza la búsqueda combinada solo si al menos un input tiene valor
+    if (inputNombre !== '' || inputSerie !== 'Serie de amiibo' || inputTipo !== 'Tipo de Amiibo') {
+
+        // Filtra la lista de amiibos según los valores de los inputs no vacíos
+        let amiibosEncontrados = res.amiibo.filter(function (amiibo) {
+            // Comprueba si el nombre del amiibo contiene la cadena de búsqueda (ignorando mayúsculas y minúsculas)
+            const nombreCoincide = !inputNombre || amiibo.character.toLowerCase().includes(inputNombre);
+
+            // Comprueba si la serie del amiibo coincide con el valor seleccionado o si no se ha seleccionado una serie
+            const serieCoincide = inputSerie === 'Serie de amiibo' || amiibo.amiiboSeries === inputSerie;
+
+            // Comprueba si el tipo del amiibo coincide con el valor seleccionado o si no se ha seleccionado un tipo
+            const tipoCoincide = inputTipo === 'Tipo de Amiibo' || amiibo.type === inputTipo;
+
+            // Retorna true solo si todos los criterios coinciden
+            return nombreCoincide && serieCoincide && tipoCoincide;
+        });
+
+        // Si se encuentran amiibos, agrégalos al contenedor
+        if (amiibosEncontrados.length > 0) {
+            for (let i = 0; i < amiibosEncontrados.length; i++) {
+                agregarTodosamiibo(amiibosEncontrados[i]);
+            }
+        } else {
+            // Si no se encuentran amiibos, muestra un mensaje de no encontrado
+            amiiboNoEncontrado();
+        }
     } else {
+        // Si no se ingresa ningún valor, muestra todos los amiibos
         mostrarAmiibos(Indice);
     }
 }
 
-// Realiza la búsqueda de amiibos según el tipo y valor de búsqueda
-function buscar(tipoBusqueda, valorBusqueda) {
-    const valorBusquedaLowerCase = valorBusqueda.toLowerCase(); // Convertir a minúsculas
-
-    // Realiza la búsqueda según el tipo seleccionado
-    let amiibosEncontrados;
-    switch (tipoBusqueda) {
-        case 'nombre':
-            amiibosEncontrados = res.amiibo.filter(amiibo => amiibo.character.toLowerCase().split(' ').some(nombre => nombre === valorBusquedaLowerCase));
-            break;
-        case 'serie':
-            amiibosEncontrados = res.amiibo.filter(amiibo => amiibo.amiiboSeries === valorBusqueda);
-            break;
-        case 'tipo':
-            amiibosEncontrados = res.amiibo.filter(amiibo => amiibo.type === valorBusqueda);
-            break;
-        default:
-            console.error('Tipo de búsqueda no válido');
-            return;
-    }
-
-    contenedorAmiibo.innerHTML = '';
-
-    // Si se encuentran amiibos, agrégalos al contenedor
-    if (amiibosEncontrados.length > 0) {
-        for (let i = 0; i < amiibosEncontrados.length; i++) {
-            agregarTodosamiibo(amiibosEncontrados[i]);
-        }
-    } else {
-        amiiboNoEncontrado();
-    }
-}
 
 // Referencias a los botones de búsqueda 
 let btnBuscarNombre = document.getElementById('btnBuscarNombre');
 let btnBuscarSelectSerie = document.getElementById('btnBuscarSelectSerie');
 let btnBuscarSelectTipo = document.getElementById('btnBuscarSelectTipo');
 
-// Agrega un evento a cada botón de búsqueda
-btnBuscarNombre.addEventListener('click', capturarValor);
-btnBuscarSelectSerie.addEventListener('click', capturarValor);
-btnBuscarSelectTipo.addEventListener('click', capturarValor);
+btnBuscarNombre.addEventListener('click', buscarAmiibo);
+btnBuscarSelectSerie.addEventListener('click', buscarAmiibo);
+btnBuscarSelectTipo.addEventListener('click', buscarAmiibo);
+
 
 //Ventana de información del amiibo
 function mostrarInformacion(amiibo) {
