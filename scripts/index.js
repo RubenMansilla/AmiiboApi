@@ -183,7 +183,6 @@ function buscarAmiibo() {
     }
 }
 
-
 // Referencias a los botones de búsqueda 
 let btnBuscarNombre = document.getElementById('btnBuscarNombre');
 let btnBuscarSelectSerie = document.getElementById('btnBuscarSelectSerie');
@@ -193,8 +192,7 @@ btnBuscarNombre.addEventListener('click', buscarAmiibo);
 btnBuscarSelectSerie.addEventListener('click', buscarAmiibo);
 btnBuscarSelectTipo.addEventListener('click', buscarAmiibo);
 
-
-//Ventana de información del amiibo
+// Ventana de información del amiibo
 function mostrarInformacion(amiibo) {
     // Lógica para mostrar información del amiibo, puedes implementar esto según tus necesidades
     console.log('Mostrar información de:', amiibo);

@@ -1,4 +1,3 @@
 1. Boton de más información
 2. Revisar Responsive
-3. Añadir botón de volver atrás cuando se realiza una busqueda especifica
-4. Modificar posicion en la que aparece la pagina al cargar y al pulsar el botón ver más
+3. Modificar posicion en la que aparece la pagina al cargar y al pulsar el botón ver más
