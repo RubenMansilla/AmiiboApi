@@ -150,12 +150,13 @@ function buscarAmiibo() {
     // Limpia el contenedor de amiibos antes de cada búsqueda
     contenedorAmiibo.innerHTML = '';
 
-    // Realiza la búsqueda combinada solo si al menos un input tiene valor
+    // Realiza la búsqueda combinada solo si al menos un input tiene valor distinto de vacío o el valor por defecto
     if (inputNombre !== '' || inputSerie !== 'Serie de amiibo' || inputTipo !== 'Tipo de Amiibo') {
 
         // Filtra la lista de amiibos según los valores de los inputs no vacíos
         let amiibosEncontrados = res.amiibo.filter(function (amiibo) {
-            // Comprueba si el nombre del amiibo contiene la cadena de búsqueda (ignorando mayúsculas y minúsculas)
+            // Comprueba si el nombre del amiibo contiene la cadena de búsqueda (ignorando mayúsculas y minúsculas) 
+            // o si no se ha ingresado un nombre
             const nombreCoincide = !inputNombre || amiibo.character.toLowerCase().includes(inputNombre);
 
             // Comprueba si la serie del amiibo coincide con el valor seleccionado o si no se ha seleccionado una serie
