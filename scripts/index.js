@@ -63,7 +63,8 @@ function mostrarAmiibos(Indice) {
 
 // Elimina solo los botones de carga del contenedor
 function eliminarBotonesCarga() {
-    const botonesCarga = document.querySelectorAll('.btnCargarMas');
+    // Selecciona todos los botones de carga y elimínalos
+    const botonesCarga = document.querySelectorAll('.contenedorBotonCargar');
     botonesCarga.forEach(boton => {
         boton.parentNode.removeChild(boton);
     });
