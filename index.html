@@ -22,16 +22,15 @@
 
     <header>
         <div class="logoContainer">
-            <a id="logo"><img class="imagenLogo" src="img/Amiibo_logo.png"></a>
+            <div class="cajaLogo" id="logo">
+                <img class="imagenLogo" src="img/Amiibo_logo.png">
+            </div>
         </div>
     </header>
 
     <div class="contenedorBuscador">
         <div class="buscador">
             <input type="text" id="inputNombre" class="buscadorInput" placeholder="Buscar tu amiibo">
-            <a><button id="btnBuscarNombre" class="btnBuscar">Buscar</button></a>
-        </div>
-        <div class="buscador">
             <select class="buscadorInput" id="inputSerie">
                 <option>Serie de amiibo</option>
                 <option value="Animal Crossing">Animal Crossing</option>
@@ -59,9 +58,6 @@
                 <option value="Yu-Gi-Oh!">Yu-Gi-Oh!</option>
                 <option value="Others">Otros</option>
             </select>
-            <a><button id="btnBuscarSelectSerie" class="btnBuscar">Buscar</button></a>
-        </div>
-        <div class="buscador">
             <select class="buscadorInput" id="inputTipo">
                 <option>Tipo de Amiibo</option>
                 <option value="Figure">Figura</option>
@@ -69,6 +65,8 @@
                 <option value="Yarn">Peluche</option>
                 <option value="Band">Pulsera</option>
             </select>
+        </div>
+        <div class="cajaBoton">
             <a><button id="btnBuscarSelectTipo" class="btnBuscar">Buscar</button></a>
         </div>
     </div>

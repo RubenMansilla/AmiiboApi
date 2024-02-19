@@ -17,11 +17,16 @@ body {
 }
 
 .logoContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+    
     backdrop-filter: blur(10);
+    border: 1px solid #8f8f8fb0;
+}
+
+.cajaLogo{          
+    margin: 20px;                                        
+    border: 1px solid #8f8f8fb0;;
+    width: fit-content;
+    height: fit-content;
 }
 
 .imagenLogo {
@@ -49,19 +54,21 @@ body {
 }
 
 .contenedorBuscador {
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 50px;
-    align-items: center;
+    margin-top: 60px;
     padding: 20px;
 }
 
 .buscador {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px; 
+}
+
+.cajaBoton {
+    margin: auto;
+    text-align: center;
+    padding-top: 60px;
 }
 
 @media screen and (min-width: 768px) {
@@ -71,24 +78,23 @@ body {
     }
 
     .buscador {
-        margin: 0 10px;
-        /* Ajusta el espacio entre los buscadores si es necesario */
         justify-content: center;
         text-align: center;
+    }
+
+    .cajaBoton {
+        margin-top: 0; /* Reiniciar el margen superior en pantallas más grandes */
+        margin-left: 10px; /* Agregar margen izquierdo para separar la caja del botón de la barra de búsqueda */
     }
 }
 
 @media screen and (max-width: 767px) {
     .contenedorBuscador {
-        flex-direction: row;
-        justify-content: center;
+        flex-direction: column; /* Cambiar a columnar en pantallas más pequeñas */
     }
 
-    .buscadorInput {
-        padding: 15px 10px 15px 15px;
-    }
-
-    .buscador {
+    .buscador,
+    .cajaBoton {
         margin: 0 10px;
         justify-content: center;
         text-align: center;
@@ -109,6 +115,7 @@ body {
     font-size: 1.3rem;
     
 }
+
 @media screen and (max-width: 480px){
     .buscadorInput::placeholder {
         font-size: 1rem;
@@ -117,7 +124,7 @@ body {
 }
 
 .btnBuscar {
-    width: 100px;
+    width: 120px;
     height: 45px;
     font-size: 16px;
     font-weight: 600;
