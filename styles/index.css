@@ -17,14 +17,11 @@ body {
 }
 
 .logoContainer {
-    
     backdrop-filter: blur(10);
-    border: 1px solid #8f8f8fb0;
 }
 
 .cajaLogo{          
     margin: 20px;                                        
-    border: 1px solid #8f8f8fb0;;
     width: fit-content;
     height: fit-content;
 }
