@@ -100,6 +100,7 @@ body {
 }
 
 .buscadorInput {
+    width: 250px;
     background: #b8e8e6;
     border-radius: 30px;
     color: #1573aa;
