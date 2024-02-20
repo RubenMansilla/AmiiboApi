@@ -185,14 +185,10 @@ function buscarAmiibo() {
     }
 }
 
-// Referencias a los botones de búsqueda 
-//let btnBuscarNombre = document.getElementById('btnBuscarNombre');
-//let btnBuscarSelectSerie = document.getElementById('btnBuscarSelectSerie');
-let btnBuscarSelectTipo = document.getElementById('btnBuscarSelectTipo');
 
-//btnBuscarNombre.addEventListener('click', buscarAmiibo);
-//btnBuscarSelectSerie.addEventListener('click', buscarAmiibo);
-btnBuscarSelectTipo.addEventListener('click', buscarAmiibo);
+let btnBuscar = document.getElementById('btnBuscar');
+
+btnBuscar.addEventListener('click', buscarAmiibo);
 
 let inputNombre = document.getElementById('inputNombre');
 
