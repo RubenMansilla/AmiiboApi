@@ -87,15 +87,20 @@ function agregarTodosamiibo(amiibo) {
         <div class="amiiboInfo">
             <h2 class="amiiboNombre">${primerasDosPalabras}</h2>
             <p class="amiiboSerie">${amiibo.amiiboSeries}</p>
-            <a><button class="btnMasInformacion bn632-hover bn22">Mas Información</button></a>
         </div>
     `;
 
-    // Asigna el evento de clic al botón de información
-    const btnMasInformacion = nuevoAmiibo.querySelector('.btnMasInformacion');
+    // Crea el botón "Mas Información" y agrega el evento de clic
+    const btnMasInformacion = document.createElement('button');
+    btnMasInformacion.textContent = 'Mas Información';
+    btnMasInformacion.classList.add('btnMasInformacion');
     btnMasInformacion.addEventListener('click', function () {
-        mostrarInformacion(amiibo);
+        mostrarInformacion(amiibo); // Llama a la función con el amiibo correspondiente
     });
+
+    // Agrega el botón al elemento con la clase "amiiboInfo"
+    const amiiboInfo = nuevoAmiibo.querySelector('.amiiboInfo');
+    amiiboInfo.appendChild(btnMasInformacion);
 
     // Agrega el nuevo amiibo al contenedor
     contenedorAmiibo.appendChild(nuevoAmiibo);
@@ -187,11 +192,9 @@ function buscarAmiibo() {
 
 
 let btnBuscar = document.getElementById('btnBuscar');
-
 btnBuscar.addEventListener('click', buscarAmiibo);
 
 let inputNombre = document.getElementById('inputNombre');
-
 inputNombre.addEventListener('keyup', function (event) {
     // Verifica si la tecla presionada es "Enter" (código 13)
     if (event.keyCode === 13) {
@@ -202,8 +205,61 @@ inputNombre.addEventListener('keyup', function (event) {
 
 // Ventana de información del amiibo
 function mostrarInformacion(amiibo) {
-    // Lógica para mostrar información del amiibo, puedes implementar esto según tus necesidades
-    console.log('Mostrar información de:', amiibo);
+
+    document.body.style.overflow = 'hidden';
+
+    // Crear el contenido de la ventana de información
+    const ventanaInfo = document.createElement('div');
+    ventanaInfo.className = 'ventanaInfo';
+
+    ventanaInfo.innerHTML = `
+        <div class="textoEImg">
+            <div class="cajaImg">
+                <img src="${amiibo.image}" alt="${amiibo.character}">
+            </div>
+            <div class="cajaInfo">
+                <div class="nombreAmiibo">
+                    <h1>${amiibo.character}</h1>
+                </div>
+                <div class="cajaSerie">
+                    <h3>Serie: ${amiibo.amiiboSeries}</h3>
+                </div>
+                <div class="cajaFecha">
+                    <h5>Fecha lanzamiento: ${amiibo.release.na}</h5>
+                </div>
+                <div class="cajaTipo">
+                    <h5>Tipo amiibo: ${amiibo.type}</h5>
+                </div>
+                <div class="cajaUso">
+                    <h5>Uso: ${amiibo.usage}</h5>
+                </div>
+                <div class="cajaJuego">
+                    <h5>Juego: ${amiibo.gameSeries}</h5>
+                </div>
+            </div>
+            <div class="cajaBtn">
+                <button class="btnCerrar" onclick="cerrarVentanaInfo()">X</button>
+            </div>
+        </div>
+    `;
+
+    // Agrega la ventana de información al contenedor del cuerpo del documento
+    document.body.appendChild(ventanaInfo);
+
+    // Espera un breve período antes de aplicar la clase para permitir la animación
+    setTimeout(() => {
+        ventanaInfo.style.opacity = '1';
+    }, 50);
+}
+
+function cerrarVentanaInfo() {
+
+    document.body.style.overflow = 'auto';
+
+    const ventanaInfo = document.querySelector('.ventanaInfo');
+    if (ventanaInfo) {
+        ventanaInfo.remove();
+    }
 }
 
 function amiiboNoEncontrado() {
