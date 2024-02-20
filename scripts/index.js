@@ -249,6 +249,9 @@ function agregarEventoVolver(indice) {
 
 let logo = document.getElementById('logo');
 logo.addEventListener('click', function () {
+    inputNombre.value = '';
+    inputSerie.value = 'Serie de amiibo';
+    inputTipo.value = 'Tipo de Amiibo';
     contenedorAmiibo.innerHTML = ``;
     indice = 0;
     mostrarAmiibos(indice);
