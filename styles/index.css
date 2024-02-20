@@ -42,7 +42,7 @@ body {
 /* Estilos para dispositivos móviles */
 @media screen and (max-width: 480px) {
     .imagenLogo {
-        width: 90%;
+        width: 100%;
     }
 }
 
@@ -95,6 +95,7 @@ body {
         margin: 0 10px;
         justify-content: center;
         text-align: center;
+        gap: 20px; 
     }
 }
 
@@ -230,6 +231,7 @@ body {
     transform: scaleX(-1);
 }
 
+
 .imgAmiibo {
     width: 100%;
     height: 100%;
@@ -302,6 +304,24 @@ body {
     -o-transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
+}
+
+@media screen and (max-width: 480px) {
+    .amiibo{
+        width: 250px;
+        height: 390px;
+    }
+
+    .amiiboNombre{
+        font-size: 1.3rem;
+    }
+
+    .btnMasInformacion{
+        width: 140px;
+        height: 35px;
+        font-size: 14px;
+    }
+    
 }
 
 .btnMasInformacion:hover {
