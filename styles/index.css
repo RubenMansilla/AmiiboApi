@@ -309,8 +309,8 @@ body {
 
 @media screen and (max-width: 480px) {
     .amiibo{
-        width: 250px;
-        height: 390px;
+        width: 230px;
+        height: 370px;
     }
 
     .amiiboNombre{
@@ -319,8 +319,8 @@ body {
 
     .btnMasInformacion{
         width: 140px;
-        height: 35px;
-        font-size: 14px;
+        height: 30px;
+        font-size: 13px;
     }
     
 }
