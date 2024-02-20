@@ -203,8 +203,16 @@ inputNombre.addEventListener('keyup', function (event) {
     }
 });
 
+let ventanaAbierta = false; // Variable para controlar si la ventana está abierta o no
+
 // Ventana de información del amiibo
 function mostrarInformacion(amiibo) {
+
+    if (ventanaAbierta) {
+        return; // Si la ventana ya está abierta, no hacer nada
+    }
+
+    ventanaAbierta = true;
 
     document.body.style.overflow = 'hidden';
 
@@ -246,19 +254,39 @@ function mostrarInformacion(amiibo) {
     // Agrega la ventana de información al contenedor del cuerpo del documento
     document.body.appendChild(ventanaInfo);
 
+    contenedorAmiibo.style.opacity = '0.6';
+
+    // Deshabilitar el botón mientras la ventana está abierta
+    const btnMasInformacion = document.getElementById('btnMasInformacion');
+    if (btnMasInformacion) {
+        btnMasInformacion.disabled = true;
+    }
+
     // Espera un breve período antes de aplicar la clase para permitir la animación
     setTimeout(() => {
         ventanaInfo.style.opacity = '1';
     }, 50);
+    
 }
 
 function cerrarVentanaInfo() {
 
     document.body.style.overflow = 'auto';
 
+    contenedorAmiibo.style.opacity = '1';
+
     const ventanaInfo = document.querySelector('.ventanaInfo');
+
     if (ventanaInfo) {
         ventanaInfo.remove();
+    }
+
+    ventanaAbierta = false;
+
+    // Habilitar el botón después de cerrar la ventana
+    const btnMasInformacion = document.getElementById('btnMasInformacion');
+    if (btnMasInformacion) {
+        btnMasInformacion.disabled = false;
     }
 }
 
