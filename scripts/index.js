@@ -233,7 +233,7 @@ function mostrarInformacion(amiibo) {
                     <h3>Serie: ${amiibo.amiiboSeries}</h3>
                 </div>
                 <div class="cajaFecha">
-                    <h5>Fecha lanzamiento: ${amiibo.release.na}</h5>
+                    <h5>Fecha lanzamiento: ${amiibo.release.eu}</h5>
                 </div>
                 <div class="cajaTipo">
                     <h5>Tipo amiibo: ${amiibo.type}</h5>
