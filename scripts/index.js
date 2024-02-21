@@ -236,17 +236,17 @@ function mostrarInformacion(amiibo) {
                     <h5>Fecha lanzamiento: ${amiibo.release.eu}</h5>
                 </div>
                 <div class="cajaTipo">
-                    <h5>Tipo amiibo: ${amiibo.type}</h5>
-                </div>
-                <div class="cajaUso">
-                    <h5>Uso: ${amiibo.usage}</h5>
+                    <h5>Tipo de amiibo: ${amiibo.type}</h5>
                 </div>
                 <div class="cajaJuego">
                     <h5>Juego: ${amiibo.gameSeries}</h5>
                 </div>
+                <div class="cajaUso">
+                    <h5>Uso: ${amiibo.usage}</h5>
+                </div>
             </div>
             <div class="cajaBtn">
-                <button class="btnCerrar" onclick="cerrarVentanaInfo()">X</button>
+                <button class="btnCerrar" onclick="cerrarVentanaInfo()"></button>
             </div>
         </div>
     `;
