@@ -398,7 +398,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: aqua;
+    border: 1px solid black;
     z-index: 100;
     position: fixed;
     top: 50%;
@@ -412,13 +412,13 @@ body {
     display: flex;
     width: 95%;
     height: 95%;
-    background-color: black;
+    border: 1px solid black;
 }
 
 /* Contenedor para la imagen */
 .cajaImg {
     margin-right: 50px;
-    background-color: red;
+    border: 1px solid black;
     width: 30%;
     height: 100%;
 }
@@ -432,7 +432,7 @@ body {
 /* Contenedor para la información */
 .cajaInfo {
     margin-left: 50px;
-    background-color: brown;
+    border: 1px solid black;
     width: 60%;
     height: 100%;
     text-align: center;
@@ -441,6 +441,7 @@ body {
 /* Estilos para el nombre del amiibo */
 .nombreAmiibo {
     align-items: center;
+    border: 1px solid black;
 }
 
 /* Estilos para las diferentes secciones de información */
@@ -452,6 +453,7 @@ body {
     width: fit-content;
     margin-top: 30px;
     margin-bottom: 30px;
+    border: 1px solid black;
 }
 
 /* Botón de cierre */
@@ -459,7 +461,6 @@ body {
     position: absolute;
     top: 0;
     right: 0;
-    background-color: yellow;
     width: 30px;
     height: 30px;
 }
@@ -469,7 +470,7 @@ body {
     height: 30px;
     /* Imagen de fondo para el botón de cierre */
     background-image: url("https://cdn-icons-png.flaticon.com/512/1/1766.png");
-    background-size: cover;
+    background-size: contain;
 }
 
 /* Estilos para pantallas más grandes (tabletas y escritorios) */
