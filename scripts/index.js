@@ -11,7 +11,7 @@ const request2 = new XMLHttpRequest();
 
 // Inicializa la solicitud con el método y la URL de la API de amiibos
 request.open('GET', 'https://www.amiiboapi.com/api/amiibo/');
-request2.open('GET', 'https://www.amiiboapi.com/api/amiibo/?showusage/');
+request2.open('GET', 'https://www.amiiboapi.com/api/amiibo/?showusage');
 
 // Establece el tipo de respuesta que se espera de la solicitud
 request.responseType = 'json';
@@ -95,7 +95,7 @@ function agregarTodosamiibo(amiibo) {
     btnMasInformacion.textContent = 'Mas Información';
     btnMasInformacion.classList.add('btnMasInformacion');
     btnMasInformacion.addEventListener('click', function () {
-        mostrarInformacion(amiibo); // Llama a la función con el amiibo correspondiente
+        mostrarInformacion(amiibo, res2); // Llama a la función con el amiibo correspondiente
     });
 
     // Agrega el botón al elemento con la clase "amiiboInfo"
@@ -190,33 +190,74 @@ function buscarAmiibo() {
     }
 }
 
-
-let btnBuscar = document.getElementById('btnBuscar');
-btnBuscar.addEventListener('click', buscarAmiibo);
-
-let inputNombre = document.getElementById('inputNombre');
-inputNombre.addEventListener('keyup', function (event) {
-    // Verifica si la tecla presionada es "Enter" (código 13)
-    if (event.keyCode === 13) {
-        // Ejecuta la función de búsqueda
-        buscarAmiibo();
-    }
-});
-
 let ventanaAbierta = false; // Variable para controlar si la ventana está abierta o no
 
 // Ventana de información del amiibo
-function mostrarInformacion(amiibo) {
+function mostrarInformacion(amiibo, res2) {
 
     if (ventanaAbierta) {
         return; // Si la ventana ya está abierta, no hacer nada
     }
 
     ventanaAbierta = true;
-
     document.body.style.overflow = 'hidden';
 
-    // Crear el contenido de la ventana de información
+    const amiiboEncontrado = encontrarAmiibo(amiibo, res2);
+
+    if (!amiiboEncontrado) {
+        console.error('No se encontró información para el amiibo especificado.');
+        return;
+    }
+
+    const nombreJuego = obtenerNombreJuego(amiiboEncontrado);
+    const usoAmiibo = obtenerUsoAmiibo(amiiboEncontrado);
+
+    const ventanaInfo = crearVentanaInfo(amiibo, nombreJuego, usoAmiibo);
+
+    document.body.appendChild(ventanaInfo);
+
+    contenedorAmiibo.style.opacity = '0.6';
+
+    const btnMasInformacion = document.getElementById('btnMasInformacion');
+    
+    if (btnMasInformacion) {
+        btnMasInformacion.disabled = true;
+    }
+
+    setTimeout(() => {
+        ventanaInfo.style.opacity = '1';
+    }, 50);
+}
+
+function encontrarAmiibo(amiibo, res2) {
+    return res2.amiibo.find(a => a.character === amiibo.character);
+}
+
+function obtenerNombreJuego(amiibo) {
+    if (amiibo.games3DS && amiibo.games3DS.length > 0) {
+        return amiibo.games3DS[0].gameName;
+    } else if (amiibo.gamesSwitch && amiibo.gamesSwitch.length > 0) {
+        return amiibo.gamesSwitch[0].gameName;
+    } else if (amiibo.gamesWiiU && amiibo.gamesWiiU.length > 0) {
+        return amiibo.gamesWiiU[0].gameName;
+    } else {
+        return 'Desconocido';
+    }
+}
+
+function obtenerUsoAmiibo(amiibo) {
+    if (amiibo.games3DS && amiibo.games3DS.length > 0 && amiibo.games3DS[0].amiiboUsage && amiibo.games3DS[0].amiiboUsage.length > 0) {
+        return amiibo.games3DS[0].amiiboUsage[0].Usage;
+    } else if (amiibo.gamesSwitch && amiibo.gamesSwitch.length > 0 && amiibo.gamesSwitch[0].amiiboUsage && amiibo.gamesSwitch[0].amiiboUsage.length > 0) {
+        return amiibo.gamesSwitch[0].amiiboUsage[0].Usage;
+    } else if (amiibo.gamesWiiU && amiibo.gamesWiiU.length > 0 && amiibo.gamesWiiU[0].amiiboUsage && amiibo.gamesWiiU[0].amiiboUsage.length > 0) {
+        return amiibo.gamesWiiU[0].amiiboUsage[0].Usage;
+    } else {
+        return 'Desconocido';
+    }
+}
+
+function crearVentanaInfo(amiibo, nombreJuego, usoAmiibo) {
     const ventanaInfo = document.createElement('div');
     ventanaInfo.className = 'ventanaInfo';
 
@@ -239,10 +280,10 @@ function mostrarInformacion(amiibo) {
                     <h5>Tipo de amiibo: ${amiibo.type}</h5>
                 </div>
                 <div class="cajaJuego">
-                    <h5>Juego: ${amiibo.gameSeries}</h5>
+                    <h5>Juego: ${nombreJuego}</h5>
                 </div>
                 <div class="cajaUso">
-                    <h5>Uso: ${amiibo.usage}</h5>
+                    <h5>Uso: ${usoAmiibo}</h5>
                 </div>
             </div>
             <div class="cajaBtn">
@@ -251,23 +292,10 @@ function mostrarInformacion(amiibo) {
         </div>
     `;
 
-    // Agrega la ventana de información al contenedor del cuerpo del documento
-    document.body.appendChild(ventanaInfo);
-
-    contenedorAmiibo.style.opacity = '0.6';
-
-    // Deshabilitar el botón mientras la ventana está abierta
-    const btnMasInformacion = document.getElementById('btnMasInformacion');
-    if (btnMasInformacion) {
-        btnMasInformacion.disabled = true;
-    }
-
-    // Espera un breve período antes de aplicar la clase para permitir la animación
-    setTimeout(() => {
-        ventanaInfo.style.opacity = '1';
-    }, 50);
-    
+    return ventanaInfo;
 }
+
+
 
 function cerrarVentanaInfo() {
 
@@ -301,7 +329,7 @@ function amiiboNoEncontrado() {
                 <p>El personaje que buscas no existe, inténtalo de nuevo</p>
             </div>
         </div>
-        <div class="cajaBtnAtras" style="opacity: 0; transition: opacity 2s ease-in-out;">
+        <div class="cajaBtnAtras">
             <button class="btnMasInformacion" id="botonAlerta">Volver</button>
         </div>
     `;
@@ -321,6 +349,18 @@ function amiiboNoEncontrado() {
         agregarEventoVolver(Indice);
     }, 500); // 500 milisegundos (0.5 segundos)
 }
+
+let btnBuscar = document.getElementById('btnBuscar');
+btnBuscar.addEventListener('click', buscarAmiibo);
+
+let inputNombre = document.getElementById('inputNombre');
+inputNombre.addEventListener('keyup', function (event) {
+    // Verifica si la tecla presionada es "Enter" (código 13)
+    if (event.keyCode === 13) {
+        // Ejecuta la función de búsqueda
+        buscarAmiibo();
+    }
+});
 
 function agregarEventoVolver(indice) {
     let botonAlerta = document.getElementById('botonAlerta');
