@@ -229,10 +229,12 @@ function mostrarInformacion(amiibo, res2) {
     }, 50);
 }
 
+// busca el amiibo en la lista de amiibos con uso
 function encontrarAmiibo(amiibo, res2) {
     return res2.amiibo.find(a => a.character === amiibo.character);
 }
 
+// busca el nombre del juego en el que aparece el amiibo
 function obtenerNombreJuego(amiibo) {
     if (amiibo.games3DS && amiibo.games3DS.length > 0) {
         return amiibo.games3DS[0].gameName;
@@ -245,6 +247,7 @@ function obtenerNombreJuego(amiibo) {
     }
 }
 
+// busca el uso del amiibo en los juegos
 function obtenerUsoAmiibo(amiibo) {
     if (amiibo.games3DS && amiibo.games3DS.length > 0 && amiibo.games3DS[0].amiiboUsage && amiibo.games3DS[0].amiiboUsage.length > 0) {
         return amiibo.games3DS[0].amiiboUsage[0].Usage;
