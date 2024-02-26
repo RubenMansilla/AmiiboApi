@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
-    cursor: url(https://cdn.custom-cursor.com/db/cursor/32/super_smash_bros_master_hand_cursor.png) , default !important;
+    cursor: url(https://cdn.custom-cursor.com/db/cursor/32/super_smash_bros_master_hand_cursor.png), default !important;
 }
 
 header {
@@ -20,8 +20,8 @@ body {
     backdrop-filter: blur(10);
 }
 
-.cajaLogo{          
-    margin: 20px;                                        
+.cajaLogo {
+    margin: 20px;
     width: fit-content;
     height: fit-content;
 }
@@ -29,7 +29,7 @@ body {
 .imagenLogo {
     width: 45%;
     transition: ease 0.8s;
-    cursor: url(https://cdn.custom-cursor.com/db/pointer/32/super_smash_bros_master_hand_pointer.png) , pointer !important;
+    cursor: url(https://cdn.custom-cursor.com/db/pointer/32/super_smash_bros_master_hand_pointer.png), pointer !important;
 }
 
 /* Estilos para iPad */
@@ -58,7 +58,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 40px; 
+    gap: 40px;
 }
 
 .cajaBoton {
@@ -79,14 +79,17 @@ body {
     }
 
     .cajaBoton {
-        margin-top: 0; /* Reiniciar el margen superior en pantallas más grandes */
-        margin-left: 10px; /* Agregar margen izquierdo para separar la caja del botón de la barra de búsqueda */
+        margin-top: 0;
+        /* Reiniciar el margen superior en pantallas más grandes */
+        margin-left: 10px;
+        /* Agregar margen izquierdo para separar la caja del botón de la barra de búsqueda */
     }
 }
 
 @media screen and (max-width: 767px) {
     .contenedorBuscador {
-        flex-direction: column; /* Cambiar a columnar en pantallas más pequeñas */
+        flex-direction: column;
+        /* Cambiar a columnar en pantallas más pequeñas */
     }
 
     .buscador,
@@ -94,7 +97,7 @@ body {
         margin: 0 10px;
         justify-content: center;
         text-align: center;
-        gap: 20px; 
+        gap: 20px;
     }
 }
 
@@ -111,14 +114,14 @@ body {
 .buscadorInput::placeholder {
     color: #1573aa;
     font-size: 1.3rem;
-    
+
 }
 
-@media screen and (max-width: 480px){
+@media screen and (max-width: 480px) {
     .buscadorInput::placeholder {
         font-size: 1rem;
     }
-    
+
 }
 
 .btnBuscar {
@@ -134,7 +137,7 @@ body {
     -o-transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
-    cursor: url(https://cdn.custom-cursor.com/db/pointer/32/super_smash_bros_master_hand_pointer.png) , pointer !important;
+    cursor: url(https://cdn.custom-cursor.com/db/pointer/32/super_smash_bros_master_hand_pointer.png), pointer !important;
 }
 
 @media screen and (max-width: 480px) {
@@ -303,25 +306,25 @@ body {
     -o-transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
-    cursor: url(https://cdn.custom-cursor.com/db/pointer/32/super_smash_bros_master_hand_pointer.png) , pointer !important;
+    cursor: url(https://cdn.custom-cursor.com/db/pointer/32/super_smash_bros_master_hand_pointer.png), pointer !important;
 }
 
 @media screen and (max-width: 480px) {
-    .amiibo{
+    .amiibo {
         width: 230px;
         height: 370px;
     }
 
-    .amiiboNombre{
+    .amiiboNombre {
         font-size: 1.3rem;
     }
 
-    .btnMasInformacion{
+    .btnMasInformacion {
         width: 140px;
         height: 30px;
         font-size: 13px;
     }
-    
+
 }
 
 .btnMasInformacion:hover {
@@ -390,16 +393,16 @@ body {
     justify-content: center;
 }
 
-.ventanaInfo{
+.ventanaInfo {
     display: none;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 80%;
-    max-width: 900px; /* Ajusta este valor según tus necesidades */
+    max-width: 900px;
     height: 80%;
-    max-height: 900px; /* Ajusta este valor según tus necesidades */
+    max-height: 900px;
     background-color: rgba(166, 190, 220, 0.318);
     border: 1px solid rgba(96, 96, 105, 0.642);
     border-radius: 10px;
@@ -409,7 +412,8 @@ body {
     justify-content: center;
 }
 
-@media only screen and (max-width: 600px), (max-height: 600px) {
+@media only screen and (max-width: 600px),
+(max-height: 600px) {
     .ventanaInfo {
         width: 90%;
         height: auto;
@@ -418,79 +422,55 @@ body {
     }
 }
 
-
-/* Estilos para el contenedor principal de la ventana de información
-.ventanaInfo {
-    margin: auto;    
-    width: 60%;
-    height: 80%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgba(96, 96, 105, 0.642);
-    z-index: 100;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 10px;
-    background-color: rgba(166, 190, 220, 0.318);
-    backdrop-filter: blur(20px);
-}
-*/
-
 /* Contenedor para texto e imagen dentro de la ventana */
 .textoEImg {
     padding: 20px;
     display: flex;
     width: 95%;
     height: 95%;
-    background-color: #8b99a230;
     border-radius: 10px;
-    backdrop-filter: blur(20px);
-    border: 1px solid #000000b0;
 }
 
 /* Contenedor para la imagen */
 .cajaImg {
-    border: 1px solid #000000b0;
     width: 40%;
 }
 
 .cajaImg img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Ajusta la imagen al tamaño del contenedor */
+    object-fit: contain;
     border-radius: 10px;
 }
 
 /* Contenedor para la información */
 .cajaInfo {
-    border: 1px solid #000000b0;
     width: 60%;
     height: 100%;
-    text-align: center;
     display: flex;
     flex-direction: column;
     gap: 15px;
     overflow: auto;
 }
-.cajaInfo h5{
+
+.cajaInfo h5 {
+    width: 60%;
+    margin: auto;
+    height: 100%;
+
+    font-size: 18px;
+}
+
+.cajaInfo h3 {
     width: 60%;
     margin: auto;
     height: 100%;
     text-align: center;
     font-size: 20px;
-}
-.cajaInfo h3{
-    width: 60%;
-    margin: auto;
-    height: 100%;
-    text-align: center;
-    font-size: 23px;
     border-radius: 10px;
 }
-.cajaInfo h1{
+
+.cajaInfo h1 {
     width: 60%;
     margin: auto;
     height: 100%;
@@ -499,50 +479,33 @@ body {
     border-radius: 10px;
 }
 
-
-.cajaSerie{
-}
-
-/* Estilos para el nombre del amiibo */
-.nombreAmiibo {
-    align-items: center;
-}
-
 /* Estilos para las diferentes secciones de información */
 .cajaFecha,
 .cajaUso,
 .cajaJuego,
 .cajaInfo h1,
 .cajaTipo,
-.cajaInfo h3{
+.cajaInfo h3 {
     width: 100%;
-background-color: #cacace38;
-border: 1px solid #000000b0;
-backdrop-filter: blur(5px);
+    padding: 10px;
 }
 
-.cajaFecha{
-    width: fit-content;
-    margin: auto;
-    text-align: center;
-    padding: 5px;
+.cajaFecha {
+    width: 100%;
     border-radius: 10px;
-    
+
 }
+
 .cajaUso,
-.cajaJuego{
-    width: fit-content;
+.cajaJuego {
+    width: 100%;
     margin: auto;
-    text-align: center;
-    padding: 5px;
     border-radius: 10px;
 }
 
 .cajaTipo {
-    width: 300px;
+    width: 100%;
     margin: auto;
-    text-align: center;
-    padding: 5px;
     border-radius: 10px;
 }
 
@@ -557,24 +520,23 @@ backdrop-filter: blur(5px);
 }
 
 .btnCerrar {
+    background-color: rgba(166, 190, 220, 0.318);
     width: 35px;
     height: 35px;
-    background-color: #8b99a230;
-    /* Imagen de fondo para el botón de cierre */
     background-image: url("../img/MakiCross.png");
     background-size: contain;
-    font-style: unset;
-    font-weight: bold;
     border: none;
-    cursor: url(https://cdn.custom-cursor.com/db/pointer/32/super_smash_bros_master_hand_pointer.png) , pointer !important;
+    cursor: url(https://cdn.custom-cursor.com/db/pointer/32/super_smash_bros_master_hand_pointer.png), pointer !important;
 }
 
 
 /* Estilos para pantallas más grandes (tabletas y escritorios) */
 @media screen and (min-width: 768px) {
     .contenedorBuscador {
-        flex-direction: row; /* Cambiado a fila para pantallas más grandes */
-        justify-content: center; /* Centra los buscadores horizontalmente */
+        flex-direction: row;
+        /* Cambiado a fila para pantallas más grandes */
+        justify-content: center;
+        /* Centra los buscadores horizontalmente */
     }
 
     .buscador {
