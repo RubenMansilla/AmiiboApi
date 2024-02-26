@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
-    cursor: url(https://cdn.custom-cursor.com/db/pointer/32/super_smash_bros_master_hand_pointer.png) , default !important;
+    cursor: url(https://cdn.custom-cursor.com/db/cursor/32/super_smash_bros_master_hand_cursor.png) , default !important;
 }
 
 header {
@@ -29,7 +29,7 @@ body {
 .imagenLogo {
     width: 45%;
     transition: ease 0.8s;
-    cursor: url(https://cdn.custom-cursor.com/db/cursor/32/super_smash_bros_master_hand_cursor.png) , pointer !important;
+    cursor: url(https://cdn.custom-cursor.com/db/pointer/32/super_smash_bros_master_hand_pointer.png) , pointer !important;
 }
 
 /* Estilos para iPad */
@@ -135,7 +135,7 @@ body {
     -o-transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
-    cursor: url(https://cdn.custom-cursor.com/db/cursor/32/super_smash_bros_master_hand_cursor.png) , pointer !important;
+    cursor: url(https://cdn.custom-cursor.com/db/pointer/32/super_smash_bros_master_hand_pointer.png) , pointer !important;
 }
 
 @media screen and (max-width: 480px) {
@@ -305,7 +305,7 @@ body {
     -o-transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
-    cursor: url(https://cdn.custom-cursor.com/db/cursor/32/super_smash_bros_master_hand_cursor.png) , pointer !important;
+    cursor: url(https://cdn.custom-cursor.com/db/pointer/32/super_smash_bros_master_hand_pointer.png) , pointer !important;
 }
 
 @media screen and (max-width: 480px) {
