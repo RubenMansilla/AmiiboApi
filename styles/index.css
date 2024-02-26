@@ -127,7 +127,6 @@ body {
     font-size: 16px;
     font-weight: 600;
     color: #fff;
-    cursor: pointer;
     text-align: center;
     border: none;
     background-size: 300% 100%;
@@ -296,7 +295,6 @@ body {
     font-size: 16px;
     font-weight: 600;
     color: #fff;
-    cursor: pointer;
     height: 40px;
     text-align: center;
     border: none;
@@ -568,7 +566,7 @@ backdrop-filter: blur(5px);
     font-style: unset;
     font-weight: bold;
     border: none;
-    cursor: pointer;
+    cursor: url(https://cdn.custom-cursor.com/db/pointer/32/super_smash_bros_master_hand_pointer.png) , pointer !important;
 }
 
 
