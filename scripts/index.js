@@ -268,6 +268,9 @@ function crearVentanaInfo(amiibo, nombreJuego, usoAmiibo) {
     const ventanaInfo = document.createElement('div');
     ventanaInfo.className = 'ventanaInfo';
 
+    // Condición para mostrar el audio solo cuando el amiibo sea igual a "Ankha"
+    const mostrarAudio = amiibo.character.toLowerCase() === 'ankha';
+
     ventanaInfo.innerHTML = `
         <div class="textoEImg">
             <div class="cajaImg">
@@ -292,6 +295,16 @@ function crearVentanaInfo(amiibo, nombreJuego, usoAmiibo) {
                 <div class="cajaUso">
                     <h5>Uso: ${usoAmiibo}</h5>
                 </div>
+
+                <!-- Mostrar el audio solo cuando el amiibo sea igual a "Ankha" -->
+                ${mostrarAudio ? `
+                <div class="cajaAudio">
+                    <audio class="audio" id="miAudio" controls>
+                        <source src="img/audio.mp3" type="audio/mp3">
+                        Tu navegador no soporta el elemento de audio.
+                    </audio>
+                </div>
+                ` : ''}
             </div>
             <div class="cajaBtn">
                 <button class="btnCerrar" onclick="cerrarVentanaInfo()"></button>
@@ -301,6 +314,7 @@ function crearVentanaInfo(amiibo, nombreJuego, usoAmiibo) {
 
     return ventanaInfo;
 }
+
 
 let ventanaAbierta = false; // Variable para controlar si la ventana está abierta o no
 
