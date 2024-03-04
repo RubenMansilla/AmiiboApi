@@ -273,6 +273,7 @@ function crearVentanaInfo(amiibo, nombreJuego, usoAmiibo) {
     // Condición para mostrar el audio solo cuando el amiibo sea igual a "Ankha"
     const mostrarAudio = amiibo.character.toLowerCase() === 'ankha';
 
+    
     ventanaInfo.innerHTML = `
         <div class="textoEImg">
             <div class="cajaImg">
@@ -309,7 +310,7 @@ function crearVentanaInfo(amiibo, nombreJuego, usoAmiibo) {
                 ` : ''}
             </div>
             <div class="cajaBtn">
-                <button class="btnCerrar" onclick="cerrarVentanaInfo()"></button>
+                <div class="btnCerrar" onclick="cerrarVentanaInfo()"></div>
             </div>
         </div>
     `;
