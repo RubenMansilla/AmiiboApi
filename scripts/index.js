@@ -151,7 +151,7 @@ function buscarAmiibo() {
     // Obtiene los valores de los inputs y los normaliza
     let inputNombre = document.getElementById('inputNombre').value.trim().toLowerCase();
 
-    if (inputNombre === 'rick astley' || inputNombre === 'Rick') {
+    if (inputNombre === 'rick astley') {
         window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley';
     }else if (inputNombre === '33') {
         window.location.href = 'https://www.youtube.com/watch?v=oq9HlVE86OA&ab_channel=Melendi';
