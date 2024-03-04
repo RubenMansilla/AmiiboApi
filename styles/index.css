@@ -61,12 +61,6 @@ body {
     gap: 40px;
 }
 
-.cajaBoton {
-    margin: auto;
-    text-align: center;
-    padding-top: 25px;
-}
-
 @media screen and (min-width: 768px) {
     .contenedorBuscador {
         flex-direction: row;
@@ -77,13 +71,6 @@ body {
         justify-content: center;
         text-align: center;
     }
-
-    .cajaBoton {
-        margin-top: 0;
-        /* Reiniciar el margen superior en pantallas más grandes */
-        margin-left: 10px;
-        /* Agregar margen izquierdo para separar la caja del botón de la barra de búsqueda */
-    }
 }
 
 @media screen and (max-width: 767px) {
@@ -92,8 +79,7 @@ body {
         /* Cambiar a columnar en pantallas más pequeñas */
     }
 
-    .buscador,
-    .cajaBoton {
+    .buscador {
         margin: 0 10px;
         justify-content: center;
         text-align: center;
@@ -124,54 +110,11 @@ body {
 
 }
 
-.btnBuscar {
-    width: 120px;
-    height: 45px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #fff;
-    text-align: center;
-    border: none;
-    background-size: 300% 100%;
-    border-radius: 50px;
-    -o-transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
-    cursor: url(https://cdn.custom-cursor.com/db/pointer/32/super_smash_bros_master_hand_pointer.png), pointer !important;
-}
-
 @media screen and (max-width: 480px) {
     .buscadorInput {
         padding: 10px 10px 10px 10px;
         font-size: 0.8rem;
     }
-
-    .btnBuscar {
-        width: 70px;
-        height: 35px;
-        font-size: 12px;
-    }
-
-}
-
-.btnBuscar:hover {
-    background-position: 100% 0;
-    -o-transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
-}
-
-.btnBuscar:focus {
-    outline: none;
-}
-
-.btnBuscar {
-    background-image: linear-gradient(to right,
-            #25aae1,
-            #4481eb,
-            #04befe,
-            #3f86ed);
-    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
 }
 
 .contenedorAmiibo {
@@ -412,15 +355,6 @@ body {
     justify-content: center;
 }
 
-@media only screen and (max-width: 600px),
-(max-height: 600px) {
-    .ventanaInfo {
-        width: 90%;
-        height: auto;
-        max-width: none;
-        max-height: none;
-    }
-}
 
 /* Contenedor para texto e imagen dentro de la ventana */
 .textoEImg {
@@ -529,17 +463,35 @@ body {
     cursor: url(https://cdn.custom-cursor.com/db/pointer/32/super_smash_bros_master_hand_pointer.png), pointer !important;
 }
 
+@media only screen and (max-width: 600px),
+(max-height: 600px) {
+    .ventanaInfo {
+        width: 90%;
+        height: 20%;
+        max-width: none;
+        max-height: none;
+    }
+}
 
-/* Estilos para pantallas más grandes (tabletas y escritorios) */
-@media screen and (min-width: 768px) {
-    .contenedorBuscador {
-        flex-direction: row;
-        /* Cambiado a fila para pantallas más grandes */
-        justify-content: center;
-        /* Centra los buscadores horizontalmente */
+@media only screen and (max-width: 400px),
+(max-height: 400px) {
+    .ventanaInfo {
+        width: 90%;
+        height: 40%;
+        max-width: none;
+        max-height: none;
     }
 
-    .buscador {
-        margin: 20px;
+    .nombreAmiibo h1 {
+        font-size: 1.8rem;
     }
+
+    .cajaSerie h3,
+    .cajaFecha h5,
+    .cajaUso h5,
+    .cajaJuego h5,
+    .cajaTipo h5{
+        font-size: 0.9rem;
+    }
+
 }

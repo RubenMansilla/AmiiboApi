@@ -32,16 +32,6 @@ request2.onload = function () {
     res2 = request2.response; // Asigna la respuesta de la solicitud a la variable res
 };
 
-function eliminarAnimacionDespues1_4s() {
-    setTimeout(() => {
-        let amiiboElements = document.querySelectorAll('.amiibo');
-        amiiboElements.forEach(element => {
-            element.style.animation = 'none';
-            element.style.webkitAnimation = 'none';
-        });
-    }, 1400);
-}
-
 // Muestra los siguientes amiibos y elimina el botón de carga si es necesario
 function mostrarAmiibos(Indice) {
     // Calcula el límite de amiibos a mostrar (no supera el total de amiibos) 
@@ -59,15 +49,6 @@ function mostrarAmiibos(Indice) {
     if (limite < res.amiibo.length) {
         mostrarBotonCargar();
     }
-}
-
-// Elimina solo los botones de carga del contenedor
-function eliminarBotonesCarga() {
-    // Selecciona todos los botones de carga y elimínalos
-    const botonesCarga = document.querySelectorAll('.contenedorBotonCargar');
-    botonesCarga.forEach(boton => {
-        boton.parentNode.removeChild(boton);
-    });
 }
 
 // Agrega un amiibo al contenedor de amiibos
@@ -111,6 +92,25 @@ function agregarTodosamiibo(amiibo) {
     }, 50);
 
     eliminarAnimacionDespues1_4s();
+}
+
+// Elimina solo los botones de carga del contenedor
+function eliminarBotonesCarga() {
+    // Selecciona todos los botones de carga y elimínalos
+    const botonesCarga = document.querySelectorAll('.contenedorBotonCargar');
+    botonesCarga.forEach(boton => {
+        boton.parentNode.removeChild(boton);
+    });
+}
+
+function eliminarAnimacionDespues1_4s() {
+    setTimeout(() => {
+        let amiiboElements = document.querySelectorAll('.amiibo');
+        amiiboElements.forEach(element => {
+            element.style.animation = 'none';
+            element.style.webkitAnimation = 'none';
+        });
+    }, 1400);
 }
 
 function mostrarBotonCargar() {
@@ -189,8 +189,6 @@ function buscarAmiibo() {
         mostrarAmiibos(Indice);
     }
 }
-
-let ventanaAbierta = false; // Variable para controlar si la ventana está abierta o no
 
 // Ventana de información del amiibo
 function mostrarInformacion(amiibo, res2) {
@@ -298,7 +296,7 @@ function crearVentanaInfo(amiibo, nombreJuego, usoAmiibo) {
     return ventanaInfo;
 }
 
-
+let ventanaAbierta = false; // Variable para controlar si la ventana está abierta o no
 
 function cerrarVentanaInfo() {
 
@@ -353,8 +351,11 @@ function amiiboNoEncontrado() {
     }, 500); // 500 milisegundos (0.5 segundos)
 }
 
-let btnBuscar = document.getElementById('btnBuscar');
-btnBuscar.addEventListener('click', buscarAmiibo);
+
+let inputSerie = document.getElementById('inputSerie');
+inputSerie.addEventListener('change', buscarAmiibo);
+let inputTipo = document.getElementById('inputTipo');
+inputTipo.addEventListener('change', buscarAmiibo);
 
 let inputNombre = document.getElementById('inputNombre');
 inputNombre.addEventListener('keyup', function (event) {
