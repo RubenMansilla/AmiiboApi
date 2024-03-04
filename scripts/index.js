@@ -380,21 +380,15 @@ let inputTipo = document.getElementById('inputTipo');
 inputTipo.addEventListener('change', buscarAmiibo);
 
 let inputNombre = document.getElementById('inputNombre');
-inputNombre.addEventListener('keyup', function (event) {
-    // Verifica si la tecla presionada es "Enter" (código 13)
-    if (event.keyCode === 13) {
-        // Ejecuta la función de búsqueda
-        buscarAmiibo();
-    }
-});
 
 inputNombre.addEventListener('keypress', function (event) {
     // Verifica si la tecla presionada es "Enter" (código 13)
-    if (event.keyCode === 13) {
-        // Prevén el comportamiento predeterminado del "Enter" en un formulario
-        event.preventDefault();
+    if (event.key === "Enter") {
         // Ejecuta la función de búsqueda
         buscarAmiibo();
+        
+        // Evita que el formulario se envíe (si estás dentro de un formulario)
+        event.preventDefault();
     }
 });
 
