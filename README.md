@@ -26,8 +26,8 @@ Proyecto de una página web que consiste en consumir una API. En este caso hemos
 ## Creadores
 
 - [Ruben Mansilla](https://www.linkedin.com/in/ruben-mansilla-rodriguez-/)
-- [Hugo Gago](https://github.com/ggdsrll)
-- [Ángel García Beltrán](https://www.linkedin.com/in/%C3%A1ngel-garc%C3%ADa-beltr%C3%A1n/)
+- [Hugo Sanz](https://github.com/ggdsrll)
+- [Javier Sabadell](https://github.com/Rokorider)
 
 ## Contribución
 
