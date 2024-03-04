@@ -386,6 +386,17 @@ inputNombre.addEventListener('keyup', function (event) {
     }
 });
 
+inputNombre.addEventListener('keypress', function (event) {
+    // Verifica si la tecla presionada es "Enter" (código 13)
+    if (event.keyCode === 13) {
+        // Prevén el comportamiento predeterminado del "Enter" en un formulario
+        event.preventDefault();
+        // Ejecuta la función de búsqueda
+        buscarAmiibo();
+    }
+});
+
+
 function agregarEventoVolver(indice) {
     let botonAlerta = document.getElementById('botonAlerta');
     botonAlerta.addEventListener('click', function () {
