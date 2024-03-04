@@ -153,6 +153,8 @@ function buscarAmiibo() {
 
     if (inputNombre === 'rick astley' || inputNombre === 'Rick') {
         window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley';
+    }else if (inputNombre === '33') {
+        window.location.href = 'https://www.youtube.com/watch?v=oq9HlVE86OA&ab_channel=Melendi';
     }
 
 
