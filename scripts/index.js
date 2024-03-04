@@ -398,7 +398,7 @@ inputNombre.addEventListener('keyup', function (event) {
         // Ejecuta la función de búsqueda
         buscarAmiibo();
     }
-
+});
 
 function agregarEventoVolver(indice) {
     let botonAlerta = document.getElementById('botonAlerta');
