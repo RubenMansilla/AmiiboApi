@@ -173,6 +173,7 @@ body {
             #3f86ed);
     box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
 }
+
 .cajaBoton {
     margin: auto;
     text-align: center;
@@ -525,17 +526,16 @@ body {
     cursor: url(https://cdn.custom-cursor.com/db/pointer/32/super_smash_bros_master_hand_pointer.png), pointer !important;
 }
 
-@media only screen and (max-width: 600px),
-(max-height: 600px) {
+
+@media only screen and (max-width: 800px),
+(max-height: 500px) {
     .ventanaInfo {
         width: 90%;
-        height: 20%;
+        height: 50%;
         max-width: none;
         max-height: none;
     }
 }
-
-
 
 @media only screen and (max-width: 600px),
 (max-height: 500px) {
@@ -554,24 +554,33 @@ body {
     .cajaFecha h5,
     .cajaUso h5,
     .cajaJuego h5,
-    .cajaTipo h5{
+    .cajaTipo h5 {
         font-size: 0.9rem;
     }
 
+}
+
+@media only screen and (max-width: 500px),
+(max-height: 500px) {
+    .ventanaInfo {
+        width: 90%;
+        height: 30%;
+        max-width: none;
+        max-height: none;
+    }
 }
 
 @media only screen and (max-width: 400px),
 (max-height: 400px) {
     .ventanaInfo {
         width: 90%;
-        height: 40%;
+        height: 30%;
         max-width: none;
         max-height: none;
     }
 }
 
-
-.cajaAudio{
+.cajaAudio {
     width: 100%;
     display: flex;
     text-align: center;

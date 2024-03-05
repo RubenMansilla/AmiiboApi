@@ -35,9 +35,11 @@ request2.onload = function () {
 // Muestra los siguientes amiibos y elimina el botón de carga si es necesario
 function mostrarAmiibos(Indice) {
     // Calcula el límite de amiibos a mostrar (no supera el total de amiibos) 
+    // y evita que se muestren más amiibos de los que existen
     const limite = Math.min(Indice + amiibosAMostrar, res.amiibo.length);
 
     // Agrega cada amiibo al contenedor
+    // El bucle comienza en el índice actual y termina en el límite
     for (let i = Indice; i < limite; i++) {
         agregarTodosamiibo(res.amiibo[i]);
     }
@@ -97,14 +99,18 @@ function agregarTodosamiibo(amiibo) {
 // Elimina solo los botones de carga del contenedor
 function eliminarBotonesCarga() {
     // Selecciona todos los botones de carga y elimínalos
+    // querySelectorAll devuelve una NodeList, por lo que se debe usar forEach para recorrerla
+    // y eliminar cada botón
     const botonesCarga = document.querySelectorAll('.contenedorBotonCargar');
     botonesCarga.forEach(boton => {
         boton.parentNode.removeChild(boton);
     });
 }
 
+// Elimina la animación después de 1.4 segundos
 function eliminarAnimacionDespues1_4s() {
     setTimeout(() => {
+        // Selecciona todos los elementos con la clase "amiibo" y elimina la animación
         let amiiboElements = document.querySelectorAll('.amiibo');
         amiiboElements.forEach(element => {
             element.style.animation = 'none';
@@ -113,6 +119,7 @@ function eliminarAnimacionDespues1_4s() {
     }, 1400);
 }
 
+// Muestra el botón para cargar más amiibos si es necesario
 function mostrarBotonCargar() {
     // Crea un div para contener el botón
     const divBotonCargar = document.createElement('div');
