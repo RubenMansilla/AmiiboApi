@@ -175,6 +175,7 @@ function buscarAmiibo() {
     if (inputNombre !== '' || inputSerie !== 'Serie de amiibo' || inputTipo !== 'Tipo de Amiibo') {
 
         // Filtra la lista de amiibos según los valores de los inputs no vacíos
+        // filter devuelve un nuevo array con los elementos que cumplan la condición
         let amiibosEncontrados = res.amiibo.filter(function (amiibo) {
             // Comprueba si el nombre del amiibo contiene la cadena de búsqueda (ignorando mayúsculas y minúsculas) 
             // o si no se ha ingresado un nombre
