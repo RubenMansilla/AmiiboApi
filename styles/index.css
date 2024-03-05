@@ -595,7 +595,7 @@ body {
 (max-height: 400px) {
     .ventanaInfo {
         width: 90%;
-        height: 30%;
+        height: 40%;
         max-width: none;
         max-height: none;
     }
