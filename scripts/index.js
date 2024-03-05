@@ -153,7 +153,7 @@ function buscarAmiibo() {
 
     if (inputNombre === 'rick astley') {
         window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley';
-    }else if (inputNombre === '33') {
+    } else if (inputNombre === '33') {
         window.location.href = 'https://www.youtube.com/watch?v=oq9HlVE86OA&ab_channel=Melendi';
     }
 
@@ -273,7 +273,7 @@ function crearVentanaInfo(amiibo, nombreJuego, usoAmiibo) {
     // Condición para mostrar el audio solo cuando el amiibo sea igual a "Ankha"
     const mostrarAudio = amiibo.character.toLowerCase() === 'ankha';
 
-    
+
     ventanaInfo.innerHTML = `
         <div class="textoEImg">
             <div class="cajaImg">
@@ -387,11 +387,14 @@ inputNombre.addEventListener('keypress', function (event) {
     if (event.key === "Enter") {
         // Ejecuta la función de búsqueda
         buscarAmiibo();
-        
+
         // Evita que el formulario se envíe (si estás dentro de un formulario)
         event.preventDefault();
     }
 });
+
+let btnBuscar = document.getElementById('btnBuscar');
+btnBuscar.addEventListener('click', buscarAmiibo);
 
 
 
@@ -399,6 +402,9 @@ function agregarEventoVolver(indice) {
     let botonAlerta = document.getElementById('botonAlerta');
     botonAlerta.addEventListener('click', function () {
         contenedorAmiibo.innerHTML = ``;
+        inputNombre.value = '';
+        inputSerie.value = 'Serie de amiibo';
+        inputTipo.value = 'Tipo de Amiibo';
         indice = 0;
         mostrarAmiibos(indice);
     });

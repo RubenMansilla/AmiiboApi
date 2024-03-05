@@ -71,6 +71,13 @@ body {
         justify-content: center;
         text-align: center;
     }
+
+    .cajaBoton {
+        margin-top: 0;
+        /* Reiniciar el margen superior en pantallas más grandes */
+        margin-left: 10px;
+        /* Agregar margen izquierdo para separar la caja del botón de la barra de búsqueda */
+    }
 }
 
 @media screen and (max-width: 767px) {
@@ -85,6 +92,30 @@ body {
         text-align: center;
         gap: 20px;
     }
+
+    .buscador,
+    .cajaBoton {
+        margin: 0 10px;
+        justify-content: center;
+        text-align: center;
+        gap: 20px;
+    }
+}
+
+.btnBuscar {
+    width: 120px;
+    height: 45px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 50px;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    cursor: url(https://cdn.custom-cursor.com/db/pointer/32/super_smash_bros_master_hand_pointer.png), pointer !important;
 }
 
 .buscadorInput {
@@ -114,6 +145,38 @@ body {
         padding: 10px 10px 10px 10px;
         font-size: 0.8rem;
     }
+
+    .btnBuscar {
+        width: 70px;
+        height: 35px;
+        font-size: 12px;
+    }
+
+}
+
+.btnBuscar:hover {
+    background-position: 100% 0;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btnBuscar:focus {
+    outline: none;
+}
+
+.btnBuscar {
+    background-image: linear-gradient(to right,
+            #25aae1,
+            #4481eb,
+            #04befe,
+            #3f86ed);
+    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+}
+.cajaBoton {
+    margin: auto;
+    text-align: center;
+    padding-top: 25px;
 }
 
 .contenedorAmiibo {
