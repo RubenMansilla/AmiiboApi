@@ -570,6 +570,27 @@ body {
     }
 }
 
+@media only screen and (width: 820px),
+(height: 1180px) {
+    .ventanaInfo {
+        width: 90%;
+        height: 50%;
+        max-width: none;
+        max-height: none;
+    }
+}
+
+@media only screen and (width: 1024px),
+(height: 1396px) {
+    .ventanaInfo {
+        width: 90%;
+        height: 40%;
+        max-width: none;
+        max-height: none;
+    }
+}
+
+
 @media only screen and (max-width: 400px),
 (max-height: 400px) {
     .ventanaInfo {
