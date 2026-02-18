@@ -10,8 +10,8 @@ const request = new XMLHttpRequest();
 const request2 = new XMLHttpRequest();
 
 // Inicializa la solicitud con el método y la URL de la API de amiibos
-request.open('GET', 'https://www.amiiboapi.com/api/amiibo/');
-request2.open('GET', 'https://www.amiiboapi.com/api/amiibo/?showusage');
+request.open('GET', 'https://www.amiiboapi.org/api/amiibo/');
+request2.open('GET', 'https://www.amiiboapi.org/api/amiibo/?showusage');
 
 // Establece el tipo de respuesta que se espera de la solicitud
 request.responseType = 'json';
